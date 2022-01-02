@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { AcknowledgementsPage } from './acknowledgements.page';
 
 describe('AcknowledgementsPage', () => {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditArrangementPage } from './edit-arrangement.page';
 import { AuthGuard } from './auth-guard.guard';
+import { EditArrangementPage } from './edit-arrangement.page';
 
 const routes: Routes = [
   {

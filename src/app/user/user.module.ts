@@ -1,10 +1,9 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserPage } from './user.page';
-
-import { UserPageRoutingModule } from './user-routing.module';
+import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { FirebaseUIModule } from '../firebaseui-angular/firebaseui-angular-library.module';
+import { UserPageRoutingModule } from './user-routing.module';
+import { UserPage } from './user.page';
 
 @NgModule({
   imports: [

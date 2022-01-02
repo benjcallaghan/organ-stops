@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { FirebaseuiAngularLibraryComponent } from './firebaseui-angular-library.component';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Subject } from 'rxjs';
 import firebase from 'firebase/app';
+import { Subject } from 'rxjs';
+import { FirebaseuiAngularLibraryComponent } from './firebaseui-angular-library.component';
 import { FirebaseuiAngularLibraryService } from './firebaseui-angular-library.service';
 
 describe('FirebaseuiAngularLibraryComponent', () => {

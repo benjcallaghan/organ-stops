@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { IonSegment } from '@ionic/angular';
+import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { first, map, startWith, switchMap } from 'rxjs/operators';
-import firebase from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Hymn } from '../hymn';
 
 @Component({

@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouteReuseStrategy } from '@angular/router';
-import { AngularFireModule } from '@angular/fire';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import firebase from 'firebase/app';
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseUIModule } from './firebaseui-angular/firebaseui-angular-library.module';
-import firebase from 'firebase/app';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 let globalRouter: Router;
 

@@ -1,9 +1,8 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SongsPage } from './songs.page';
-
+import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { SongsPageRoutingModule } from './songs-routing.module';
+import { SongsPage } from './songs.page';
 
 @NgModule({
   imports: [IonicModule, CommonModule, SongsPageRoutingModule],

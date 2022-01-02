@@ -1,13 +1,13 @@
 import { Inject, Injectable, NgZone, Optional } from '@angular/core';
-import * as firebaseui from 'firebaseui';
 import {
-  FIREBASE_APP_NAME,
-  FIREBASE_OPTIONS,
   FirebaseApp,
   FirebaseAppConfig,
   FirebaseOptions,
+  FIREBASE_APP_NAME,
+  FIREBASE_OPTIONS,
   ɵfirebaseAppFactory,
 } from '@angular/fire';
+import * as firebaseui from 'firebaseui';
 
 @Injectable()
 export class FirebaseuiAngularLibraryService {

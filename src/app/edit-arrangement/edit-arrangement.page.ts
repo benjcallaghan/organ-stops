@@ -4,7 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, zip } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
-import { Arrangement, Hymn, emptyArrangement, emptyHymn } from '../hymn';
+import { Arrangement, emptyArrangement, emptyHymn, Hymn } from '../hymn';
 
 type EditHymn = {
   key: string;

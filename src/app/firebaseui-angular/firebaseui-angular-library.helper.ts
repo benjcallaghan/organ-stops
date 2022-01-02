@@ -7,8 +7,8 @@
  */
 
 import firebaseOriginal from 'firebase/app';
-import UserCredential = firebaseOriginal.auth.UserCredential;
 import * as firebaseuiOriginal from 'firebaseui';
+import UserCredential = firebaseOriginal.auth.UserCredential;
 
 export const firebase = firebaseOriginal;
 export const firebaseui = firebaseuiOriginal;

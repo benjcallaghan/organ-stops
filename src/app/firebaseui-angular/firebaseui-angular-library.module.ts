@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FirebaseuiAngularLibraryComponent } from './firebaseui-angular-library.component';
-import { CommonModule } from '@angular/common';
 import { NativeFirebaseUIAuthConfig } from './firebaseui-angular-library.helper';
 import { FirebaseuiAngularLibraryService } from './firebaseui-angular-library.service';
 

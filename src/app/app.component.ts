@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',

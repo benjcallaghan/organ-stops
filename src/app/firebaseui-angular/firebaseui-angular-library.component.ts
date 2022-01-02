@@ -8,16 +8,16 @@ import {
   Output,
 } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import * as firebaseui from 'firebaseui';
 import { Subscription } from 'rxjs';
 import {
   FirebaseUISignInFailure,
   FirebaseUISignInSuccessWithAuthResult,
   NativeFirebaseUIAuthConfig,
 } from './firebaseui-angular-library.helper';
-import * as firebaseui from 'firebaseui';
-import firebase from 'firebase/app';
 import { FirebaseuiAngularLibraryService } from './firebaseui-angular-library.service';
-import 'firebase/auth';
 import UserCredential = firebase.auth.UserCredential;
 
 @Component({

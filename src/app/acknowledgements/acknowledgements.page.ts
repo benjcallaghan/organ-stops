@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { License } from '../license';
 import licenses from 'src/assets/licenses.json';
+import { License } from '../license';
 
 @Component({
   selector: 'app-acknowledgements',
