@@ -66,6 +66,7 @@
     "license-checker": "^25.0.1",
     "open": "^7.0.3",
     "prettier": "^2.5.1",
+    "prettier-plugin-organize-attributes": "0.0.4",
     "prettier-plugin-organize-imports": "^2.3.4",
     "protractor": "~7.0.0",
     "pwa-asset-generator": "^6.0.5",
