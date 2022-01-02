@@ -8,16 +8,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private platform: Platform,
-    public auth: AngularFireAuth
-  ) {
+  constructor(private platform: Platform, public auth: AngularFireAuth) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-    });
+    this.platform.ready().then(() => {});
   }
 
   signOut() {

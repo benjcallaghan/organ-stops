@@ -15,7 +15,6 @@ export const firebaseui = firebaseuiOriginal;
 
 export type NativeFirebaseUIAuthConfig = firebaseuiOriginal.auth.Config;
 
-
 export class FirebaseUISignInSuccessWithAuthResult {
   authResult: UserCredential;
   redirectUrl: string;

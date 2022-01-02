@@ -15,5 +15,4 @@ import { FirebaseUIModule } from '../firebaseui-angular/firebaseui-angular-libra
   ],
   declarations: [UserPage],
 })
-export class UserPageModule {
-}
+export class UserPageModule {}

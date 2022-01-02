@@ -6,7 +6,12 @@ import { EditArrangementPageRoutingModule } from './edit-arrangement-routing.mod
 import { EditArrangementPage } from './edit-arrangement.page';
 
 @NgModule({
-  imports: [CommonModule, IonicModule, FormsModule, EditArrangementPageRoutingModule],
+  imports: [
+    CommonModule,
+    IonicModule,
+    FormsModule,
+    EditArrangementPageRoutingModule,
+  ],
   declarations: [EditArrangementPage],
   exports: [EditArrangementPage],
 })

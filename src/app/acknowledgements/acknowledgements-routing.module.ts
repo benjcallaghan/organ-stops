@@ -6,8 +6,8 @@ import { AcknowledgementsPage } from './acknowledgements.page';
 const routes: Routes = [
   {
     path: '',
-    component: AcknowledgementsPage
-  }
+    component: AcknowledgementsPage,
+  },
 ];
 
 @NgModule({
