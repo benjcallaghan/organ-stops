@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "hymns": {
+      ".read": true,
+      ".write": "auth.uid != null"
+    }
+  }
+}
