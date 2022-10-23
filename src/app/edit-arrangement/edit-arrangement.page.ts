@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, zip } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';

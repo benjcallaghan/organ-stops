@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { defer, Observable, zip } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, Hymn, OrganStop } from '../hymn';
