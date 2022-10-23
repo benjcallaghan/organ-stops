@@ -76,7 +76,7 @@
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "~12.2.2",
-    "karma": "^6.3.9",
+    "karma": "^6.3.16",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
