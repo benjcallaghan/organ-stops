@@ -23,7 +23,6 @@ npm-debug.log*
 /.sass-cache
 /.sourcemaps
 /.versions
-/.vscode
 /coverage
 /dist
 /node_modules
@@ -33,3 +32,6 @@ npm-debug.log*
 /resources
 
 .firebase
+
+/.vscode/*
+!.vscode/extensions.json

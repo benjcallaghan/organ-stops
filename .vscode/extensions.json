@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "ionic.ionic",
+    "esbenp.prettier-vscode",
+    "johnpapa.angular-essentials"
+  ]
+}
