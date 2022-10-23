@@ -1,6 +1,6 @@
 {
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "master"
   },
   "implicitDependencies": {
     "package.json": {
@@ -39,7 +39,7 @@
       "styleext": "scss"
     },
     "@nrwl/angular:application": {
-      "style": "css",
+      "style": "scss",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
@@ -47,7 +47,7 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "css"
+      "style": "scss"
     }
   },
   "defaultProject": "app"
