@@ -3,6 +3,9 @@
     "dbaeumer.vscode-eslint",
     "ionic.ionic",
     "esbenp.prettier-vscode",
-    "johnpapa.angular-essentials"
+    "johnpapa.angular-essentials",
+    "nrwl.angular-console",
+    "angular.ng-template",
+    "firsttris.vscode-jest-runner"
   ]
 }
