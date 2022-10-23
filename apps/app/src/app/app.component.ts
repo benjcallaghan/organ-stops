@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private platform: Platform, public auth: AngularFireAuth) {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {});
-  }
+  constructor(public auth: AngularFireAuth) {}
 
   signOut() {
     this.auth.signOut();

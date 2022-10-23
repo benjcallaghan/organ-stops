@@ -123,6 +123,12 @@
           "watch": false
         }
       }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/app/**/*.ts", "apps/app/**/*.html"]
+      }
     }
   }
 }
