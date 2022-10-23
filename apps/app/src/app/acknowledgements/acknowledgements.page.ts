@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import licenses from 'src/assets/licenses.json';
+import licenses from '../../assets/licenses.json';
 import { License } from '../license';
 
 @Component({
