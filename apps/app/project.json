@@ -130,5 +130,6 @@
         "lintFilePatterns": ["apps/app/**/*.ts", "apps/app/**/*.html"]
       }
     }
-  }
+  },
+  "name": "app"
 }
