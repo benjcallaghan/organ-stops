@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 import { isAuthError } from '../firebase-utils';

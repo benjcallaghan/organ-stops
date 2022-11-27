@@ -6,6 +6,7 @@ import {
   FacebookAuthProvider,
   GoogleAuthProvider,
 } from '@angular/fire/auth';
+import { ActivatedRoute } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 import { isAuthError } from '../firebase-utils';
@@ -20,13 +21,13 @@ export class UserPage {
     email: '',
     password: '',
   };
-  public existingUser$ = this.auth.getCurrentUser();
   private existingCredential: AuthCredential | null;
 
   constructor(
     private auth: AuthenticationService,
     private alerts: AlertController,
-    private nav: NavController
+    private nav: NavController,
+    private route: ActivatedRoute
   ) {}
 
   ionViewWillEnter() {
@@ -60,7 +61,9 @@ export class UserPage {
         await this.auth.linkWithCredential(this.existingCredential);
       }
 
-      this.nav.back();
+      const successUrl =
+        this.route.snapshot.queryParamMap.get('signInSuccessUrl');
+      await this.nav.navigateBack(successUrl ?? '/songs');
     } catch (e: unknown) {
       console.error(e);
 

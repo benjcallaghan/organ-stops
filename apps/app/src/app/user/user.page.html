@@ -4,60 +4,49 @@
       <ion-back-button></ion-back-button>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>User</ion-title>
+    <ion-title>Sign In</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div *ngIf="existingUser$ | async as user; else showLogin">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <ion-button expand="block" (click)="auth.signOut()">Logout</ion-button>
+  <p>Sign in to create your own organ arrangements and save your favorites.</p>
+  <ion-button class="login google" expand="block" (click)="loginWithGoogle()"
+    >Sign in with Google</ion-button
+  >
+  <ion-button
+    class="login facebook"
+    expand="block"
+    (click)="loginWithFacebook()"
+    >Login with Facebook</ion-button
+  >
+  <div
+    class="ion-justify-content-center ion-padding-vertical"
+    style="display: flex"
+  >
+    OR
   </div>
-
-  <ng-template #showLogin>
-    <p>
-      Sign in to create your own organ arrangements and save your favorites.
-    </p>
-    <ion-button class="login google" expand="block" (click)="loginWithGoogle()"
-      >Sign in with Google</ion-button
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email Address</ion-label>
+      <ion-input
+        type="email"
+        name="email"
+        required
+        [(ngModel)]="user.email"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        name="password"
+        required
+        [(ngModel)]="user.password"
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid"
+      >Login</ion-button
     >
-    <ion-button
-      class="login facebook"
-      expand="block"
-      (click)="loginWithFacebook()"
-      >Login with Facebook</ion-button
-    >
-    <div
-      class="ion-justify-content-center ion-padding-vertical"
-      style="display: flex"
-    >
-      OR
-    </div>
-    <form #loginForm="ngForm" (ngSubmit)="login()">
-      <ion-item>
-        <ion-label position="floating">Email Address</ion-label>
-        <ion-input
-          type="email"
-          name="email"
-          required
-          [(ngModel)]="user.email"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input
-          type="password"
-          name="password"
-          required
-          [(ngModel)]="user.password"
-        ></ion-input>
-      </ion-item>
-      <ion-button expand="block" type="submit" [disabled]="loginForm.invalid"
-        >Login</ion-button
-      >
-    </form>
-    <p>
-      Don't have an account? <a routerLink="/register-email">Register now</a>
-    </p>
-  </ng-template>
+  </form>
+  <p>Don't have an account? <a routerLink="/register-email">Register now</a></p>
 </ion-content>
