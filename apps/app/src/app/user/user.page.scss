@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url('/assets/google/Roboto-Medium.ttf');
+}
+
+.login {
+  text-transform: none;
+  font-size: 14px;
+  height: 40px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+@function googleBackground($color, $url) {
+  @return $color $url 0px/40px no-repeat;
+}
+
+.google {
+  --background: #{googleBackground(
+      #ffffff,
+      url('/assets/google/btn_google_light_normal_ios.svg')
+    )};
+  --color: #000000;
+  --border-color: #000000;
+  --border-width: 2px;
+  --border-style: solid;
+  font-family: 'Roboto Medium';
+}
+
+@function facebookBackground($color, $url) {
+  @return $color $url 7px/25px no-repeat;
+}
+
+.facebook {
+  --background: #{facebookBackground(#ffffff, url('/assets/facebook/f_logo_RGB-Blue_1024.svg'))};
+  --color: #1877f2;
+  --border-color: #1877f2;
+  --border-width: 2px;
+  --border-style: solid;
+  font-weight: bold;
+}
