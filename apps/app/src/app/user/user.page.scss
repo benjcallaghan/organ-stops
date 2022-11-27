@@ -25,6 +25,15 @@
   --border-width: 2px;
   --border-style: solid;
   font-family: 'Roboto Medium';
+
+  @media (prefers-color-scheme: dark) {
+    --background: #{googleBackground(
+        #4285f4,
+        url('/assets/google/btn_google_dark_normal_ios.svg')
+      )};
+    --color: #ffffff;
+    --border-color: #4285f4;
+  }
 }
 
 @function facebookBackground($color, $url) {
@@ -32,10 +41,21 @@
 }
 
 .facebook {
-  --background: #{facebookBackground(#ffffff, url('/assets/facebook/f_logo_RGB-Blue_1024.svg'))};
+  --background: #{facebookBackground(
+      #ffffff,
+      url('/assets/facebook/f_logo_RGB-Blue_1024.svg')
+    )};
   --color: #1877f2;
   --border-color: #1877f2;
   --border-width: 2px;
   --border-style: solid;
   font-weight: bold;
+
+  @media (prefers-color-scheme: dark) {
+    --background: #{facebookBackground(
+        #1877f2,
+        url('/assets/facebook/f_logo_RGB-White_1024.svg')
+      )};
+    --color: #ffffff;
+  }
 }
