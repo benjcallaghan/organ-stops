@@ -53,6 +53,10 @@ export class UserPage {
     await this.signIn(() => this.auth.signInWithFacebook());
   }
 
+  async loginWithTwitter() {
+    await this.signIn(() => this.auth.signInWithTwitter());
+  }
+
   private async signIn(signInMethod: () => Promise<unknown>) {
     try {
       await signInMethod();

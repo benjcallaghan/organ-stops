@@ -9,6 +9,7 @@ import {
   linkWithCredential,
   signInWithCredential,
   signOut,
+  TwitterAuthProvider,
   updateProfile,
 } from '@angular/fire/auth';
 import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
@@ -58,6 +59,15 @@ export class AuthenticationService {
     const result = await FirebaseAuthentication.signInWithFacebook();
     const credential = FacebookAuthProvider.credential(
       result.credential?.accessToken as string
+    );
+    await signInWithCredential(this.auth, credential);
+  }
+
+  async signInWithTwitter() {
+    const result = await FirebaseAuthentication.signInWithTwitter();
+    const credential = TwitterAuthProvider.credential(
+      result.credential?.accessToken as string,
+      result.credential?.secret as string
     );
     await signInWithCredential(this.auth, credential);
   }
