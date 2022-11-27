@@ -3,7 +3,7 @@
     "lds-organ-stops": {
       "hosting": {
         "app": [
-          "lds-organ-stops"
+          "organ-stops"
         ]
       }
     }

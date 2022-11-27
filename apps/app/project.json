@@ -1,4 +1,5 @@
 {
+  "name": "app",
   "sourceRoot": "apps/app/src",
   "projectType": "application",
   "prefix": "app",
@@ -129,7 +130,20 @@
       "options": {
         "lintFilePatterns": ["apps/app/**/*.ts", "apps/app/**/*.html"]
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "dependsOn": ["build"],
+      "options": {
+        "command": "echo Deployments can only be performed with the production configuration. && exit 1",
+        "cwd": "apps/app"
+      },
+      "configurations": {
+        "production": {
+          "command": "npx firebase deploy"
+        }
+      }
     }
-  },
-  "name": "app"
+  }
 }

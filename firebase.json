@@ -1,8 +1,8 @@
 {
   "rulesFile": "database.rules.json",
   "hosting": {
+    "public": "dist/apps/app",
     "site": "organ-stops",
-    "public": "www",
     "ignore": [
       "firebase.json",
       "**/.*",
