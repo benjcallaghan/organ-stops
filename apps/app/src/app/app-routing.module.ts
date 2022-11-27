@@ -37,6 +37,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'register-email',
+    loadChildren: () =>
+      import('./register-email/register-email.module').then(
+        (m) => m.RegisterEmailPageModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'songs',
     pathMatch: 'full',

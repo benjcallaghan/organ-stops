@@ -48,14 +48,16 @@ export class AuthenticationService {
 
   async signInWithGoogle() {
     const result = await FirebaseAuthentication.signInWithGoogle();
-    const credential = GoogleAuthProvider.credential(result.credential.idToken);
+    const credential = GoogleAuthProvider.credential(
+      result.credential?.idToken
+    );
     await signInWithCredential(this.auth, credential);
   }
 
   async signInWithFacebook() {
     const result = await FirebaseAuthentication.signInWithFacebook();
     const credential = FacebookAuthProvider.credential(
-      result.credential.accessToken
+      result.credential?.accessToken as string
     );
     await signInWithCredential(this.auth, credential);
   }
@@ -66,6 +68,7 @@ export class AuthenticationService {
   }
 
   async linkWithCredential(credential: AuthCredential) {
+    if (!this.auth.currentUser) return;
     await linkWithCredential(this.auth.currentUser, credential);
   }
 

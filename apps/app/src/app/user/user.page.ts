@@ -6,7 +6,6 @@ import {
   FacebookAuthProvider,
   GoogleAuthProvider,
 } from '@angular/fire/auth';
-import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 import { isAuthError } from '../firebase-utils';
@@ -21,6 +20,7 @@ export class UserPage {
     email: '',
     password: '',
   };
+  public existingUser$ = this.auth.getCurrentUser();
   private existingCredential: AuthCredential | null;
 
   constructor(
