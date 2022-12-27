@@ -5,6 +5,11 @@ const config: CapacitorConfig = {
   appName: 'Organ Stops',
   webDir: '../../dist/apps/app',
   bundledWebRuntime: false,
+  plugins: {
+    FirebaseAuthentication: {
+      providers: ['google.com']
+    }
+  }
 };
 
 export default config;
