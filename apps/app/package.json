@@ -1,3 +1,6 @@
 {
-  "name": "app"
+  "name": "app",
+  "dependencies": {
+    "@capacitor-firebase/authentication": "^1.2.0"
+  }
 }
