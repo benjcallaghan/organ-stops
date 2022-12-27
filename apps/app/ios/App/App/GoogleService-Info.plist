@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>590593553203-6ao04horp6751vgeb5r3freef5opu4fi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.590593553203-6ao04horp6751vgeb5r3freef5opu4fi</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>590593553203-379dnht77kkousn6u5cm648a0hit4o3p.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBDOGqHbc4FBLRC4IdqK8Scs0yKmGqTAfw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>590593553203</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.walkingriver.organ-stops</string>
+	<key>PROJECT_ID</key>
+	<string>lds-organ-stops</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lds-organ-stops.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:590593553203:ios:3134cb0ad5ac6e17</string>
+	<key>DATABASE_URL</key>
+	<string>https://lds-organ-stops.firebaseio.com</string>
+</dict>
+</plist>
