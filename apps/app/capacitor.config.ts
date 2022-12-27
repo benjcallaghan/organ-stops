@@ -7,7 +7,7 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   plugins: {
     FirebaseAuthentication: {
-      providers: ['google.com', 'facebook.com'],
+      providers: ['google.com', 'facebook.com', 'twitter.com'],
     }
   }
 };
