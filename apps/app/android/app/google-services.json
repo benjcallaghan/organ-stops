@@ -1,0 +1,80 @@
+{
+  "project_info": {
+    "project_number": "590593553203",
+    "firebase_url": "https://lds-organ-stops.firebaseio.com",
+    "project_id": "lds-organ-stops",
+    "storage_bucket": "lds-organ-stops.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590593553203:android:2ef966c40f86e8e6",
+        "android_client_info": {
+          "package_name": "com.walkingriver.organstops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590593553203-379dnht77kkousn6u5cm648a0hit4o3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.walkingriver.organstops",
+            "certificate_hash": "8361d29a31449b5bc74251a3b14adf5c817a0118"
+          }
+        },
+        {
+          "client_id": "590593553203-3afam4kglaai7qtln8iueslp102seigr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.walkingriver.organstops",
+            "certificate_hash": "2f2d899a201a95d16d8db7020c3a72ab62f30aba"
+          }
+        },
+        {
+          "client_id": "590593553203-ev8gqg0m63vrs1sfttuckh5lrfg7b7m1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.walkingriver.organstops",
+            "certificate_hash": "d5740a7fb7af7f70a1a9a95a861b4b34b06e04c4"
+          }
+        },
+        {
+          "client_id": "590593553203-m18b5ddgmnqnhud887uegg9h79fclcv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.walkingriver.organstops",
+            "certificate_hash": "0e6683df7740e9d1058fd141913b2305ae025f6c"
+          }
+        },
+        {
+          "client_id": "590593553203-ndmdq104u1pjliuankcbpaa018lfgok4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBamJmdTTkojXvuyJinqz94O0zwHi3gFQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590593553203-ndmdq104u1pjliuankcbpaa018lfgok4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "590593553203-6ao04horp6751vgeb5r3freef5opu4fi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.walkingriver.organ-stops",
+                "app_store_id": "1276432114"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
