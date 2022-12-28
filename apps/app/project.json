@@ -234,6 +234,15 @@
           "cmd": "update android"
         }
       }
+    },
+    "build-icons": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx capacitor-assets generate --iosProject ./ios/App --assetPath ./assets --ios"
+        ],
+        "cwd": "apps/app"
+      }
     }
   }
 }
