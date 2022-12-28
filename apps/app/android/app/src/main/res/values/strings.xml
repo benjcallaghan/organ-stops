@@ -4,4 +4,8 @@
     <string name="title_activity_main">Organ Stops</string>
     <string name="package_name">com.walkingriver.organstops</string>
     <string name="custom_url_scheme">com.walkingriver.organstops</string>
+
+    <string name="facebook_app_id">1909169282633816</string>
+    <string name="fb_login_protocol_scheme">fb1909169282633816</string>
+    <string name="facebook_client_token">d5362450b1b77e41d888cd4293e6a3d1</string>
 </resources>
