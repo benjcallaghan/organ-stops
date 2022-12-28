@@ -239,7 +239,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "npx capacitor-assets generate --iosProject ./ios/App --assetPath ./assets --ios"
+          "npx capacitor-assets generate --iosProject ./ios/App --assetPath ./assets --ios --android"
         ],
         "cwd": "apps/app"
       }
