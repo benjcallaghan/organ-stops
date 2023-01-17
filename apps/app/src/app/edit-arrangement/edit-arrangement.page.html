@@ -8,61 +8,79 @@
       </ion-buttons>
       <ion-title>Edit Stops</ion-title>
       <ion-buttons slot="primary">
-        <ion-button (click)="save(edit)">Save</ion-button>
+        <ion-button (click)="save(edit)" [disabled]="form.invalid">Save</ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Number</ion-label>
-        <ion-input
-          type="number"
-          [(ngModel)]="edit.hymn.number"
-          [readonly]="edit.readonly"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Title</ion-label>
-        <ion-input
-          type="text"
-          [(ngModel)]="edit.hymn.title"
-          [readonly]="edit.readonly"
-        ></ion-input>
-      </ion-item>
+    <form #form="ngForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Number</ion-label>
+          <ion-input
+            type="number"
+            name="number"
+            [(ngModel)]="edit.hymn.number"
+            [readonly]="edit.readonly"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input
+            type="text"
+            name="title"
+            [(ngModel)]="edit.hymn.title"
+            [readonly]="edit.readonly"
+            required
+          ></ion-input>
+        </ion-item>
 
-      <ion-item-divider [sticky]="true">
-        <ion-label>Pedal</ion-label>
-      </ion-item-divider>
-      <ion-item *ngFor="let stop of edit.arrangement.pedal">
-        <ion-label>{{ stop.name }}</ion-label>
-        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-      </ion-item>
+        <ion-item-divider [sticky]="true">
+          <ion-label>Pedal</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let stop of edit.arrangement.pedal">
+          <ion-label>{{ stop.name }}</ion-label>
+          <ion-toggle
+            [name]="stop.name"
+            [(ngModel)]="stop.enabled"
+          ></ion-toggle>
+        </ion-item>
 
-      <ion-item-divider [sticky]="true">
-        <ion-label>Swell</ion-label>
-      </ion-item-divider>
-      <ion-item *ngFor="let stop of edit.arrangement.swell">
-        <ion-label>{{ stop.name }}</ion-label>
-        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-      </ion-item>
+        <ion-item-divider [sticky]="true">
+          <ion-label>Swell</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let stop of edit.arrangement.swell">
+          <ion-label>{{ stop.name }}</ion-label>
+          <ion-toggle
+            [name]="stop.name"
+            [(ngModel)]="stop.enabled"
+          ></ion-toggle>
+        </ion-item>
 
-      <ion-item-divider [sticky]="true">
-        <ion-label>Great</ion-label>
-      </ion-item-divider>
-      <ion-item *ngFor="let stop of edit.arrangement.great">
-        <ion-label>{{ stop.name }}</ion-label>
-        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-      </ion-item>
+        <ion-item-divider [sticky]="true">
+          <ion-label>Great</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let stop of edit.arrangement.great">
+          <ion-label>{{ stop.name }}</ion-label>
+          <ion-toggle
+            [name]="stop.name"
+            [(ngModel)]="stop.enabled"
+          ></ion-toggle>
+        </ion-item>
 
-      <ion-item-divider [sticky]="true">
-        <ion-label>General</ion-label>
-      </ion-item-divider>
-      <ion-item *ngFor="let stop of edit.arrangement.general">
-        <ion-label>{{ stop.name }}</ion-label>
-        <ion-toggle [(ngModel)]="stop.enabled"></ion-toggle>
-      </ion-item>
-    </ion-list>
+        <ion-item-divider [sticky]="true">
+          <ion-label>General</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let stop of edit.arrangement.general">
+          <ion-label>{{ stop.name }}</ion-label>
+          <ion-toggle
+            [name]="stop.name"
+            [(ngModel)]="stop.enabled"
+          ></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </form>
   </ion-content>
 </ng-container>
