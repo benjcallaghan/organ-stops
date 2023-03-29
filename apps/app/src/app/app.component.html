@@ -19,7 +19,7 @@
             <ion-label>Signed in as {{ user.displayName }}</ion-label>
           </ion-item-divider>
           <ion-menu-toggle>
-            <ion-item button (click)="signOut()">Sign Out</ion-item>
+            <ion-item (click)="signOut()" button>Sign Out</ion-item>
           </ion-menu-toggle>
         </ng-container>
         <ng-template #signIn>

@@ -1,9 +1,16 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { child, Database, objectVal, push, ref, set } from '@angular/fire/database';
+import {
+  child,
+  Database,
+  objectVal,
+  push,
+  ref,
+  set,
+} from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IonicModule, NavController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -72,7 +79,10 @@ export default class EditArrangementPage {
 
     if (edit.arrangement.user.id === user.uid) {
       // If the user matches, then it must be an existing arrangement.
-      await set(ref(this.db, `/hymns/${hymnKey}/arrangements/${arrangementKey}`), edit.arrangement);
+      await set(
+        ref(this.db, `/hymns/${hymnKey}/arrangements/${arrangementKey}`),
+        edit.arrangement
+      );
     } else {
       // If the user does not match, then it must be a new arrangement (possibly existing hymn).
       const names = user.displayName?.split(' ') ?? 'Anonymous';
@@ -82,7 +92,10 @@ export default class EditArrangementPage {
       };
 
       if (hymnKey) {
-        await push(ref(this.db, `/hymns/${hymnKey}/arrangements`), edit.arrangement);
+        await push(
+          ref(this.db, `/hymns/${hymnKey}/arrangements`),
+          edit.arrangement
+        );
       } else {
         const saved = await push(ref(this.db, '/hymns'), edit.hymn);
         await push(child(saved.ref, '/arrangements'), edit.arrangement);

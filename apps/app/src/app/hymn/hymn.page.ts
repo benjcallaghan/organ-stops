@@ -1,12 +1,13 @@
 import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Auth, User, user } from '@angular/fire/auth';
 import { Database, objectVal, ref, remove } from '@angular/fire/database';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertController, IonicModule } from '@ionic/angular';
-import { defer, Observable, zip } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, Hymn, OrganStop } from '../hymn';
+import { IonicSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-hymn',
@@ -14,8 +15,10 @@ import { Arrangement, Hymn, OrganStop } from '../hymn';
   styleUrls: ['./hymn.page.scss'],
   standalone: true,
   imports: [NgIf, IonicModule, NgFor, RouterLink, AsyncPipe, KeyValuePipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export default class HymnPage {
+  swiperModules = [IonicSlides];
   hymnKey$: Observable<string>;
   user$: Observable<User>;
   hymn$: Observable<Hymn>;

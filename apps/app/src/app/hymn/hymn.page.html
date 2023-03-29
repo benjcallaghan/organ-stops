@@ -9,8 +9,8 @@
   </ion-header>
 
   <ion-content>
-    <ion-slides pager="true" style="height: 100%">
-      <ion-slide
+    <swiper-container pagination style="height: 100%" [modules]="swiperModules">
+      <swiper-slide
         class="ion-align-items-start"
         *ngFor="let arrangement of hymn.arrangements | keyvalue"
       >
@@ -59,7 +59,7 @@
             Delete
           </ion-button>
         </ion-list>
-      </ion-slide>
-    </ion-slides>
+      </swiper-slide>
+    </swiper-container>
   </ion-content>
 </ng-container>

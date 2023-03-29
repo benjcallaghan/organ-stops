@@ -13,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { register as registerSwiper } from 'swiper/element/bundle';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
@@ -20,6 +21,8 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+
+registerSwiper();
 
 bootstrapApplication(AppComponent, {
   providers: [
