@@ -1,3 +1,4 @@
+import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
@@ -7,14 +8,13 @@ import firebase from 'firebase/compat/app';
 import { defer, Observable, zip } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, Hymn, OrganStop } from '../hymn';
-import { NgIf, NgFor, AsyncPipe, KeyValuePipe } from '@angular/common';
 
 @Component({
-    selector: 'app-hymn',
-    templateUrl: './hymn.page.html',
-    styleUrls: ['./hymn.page.scss'],
-    standalone: true,
-    imports: [NgIf, IonicModule, NgFor, RouterLink, AsyncPipe, KeyValuePipe]
+  selector: 'app-hymn',
+  templateUrl: './hymn.page.html',
+  styleUrls: ['./hymn.page.scss'],
+  standalone: true,
+  imports: [NgIf, IonicModule, NgFor, RouterLink, AsyncPipe, KeyValuePipe],
 })
 export default class HymnPage {
   hymnKey$: Observable<string>;

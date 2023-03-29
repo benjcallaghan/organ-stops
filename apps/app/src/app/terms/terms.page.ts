@@ -3,11 +3,11 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-    selector: 'app-terms',
-    templateUrl: './terms.page.html',
-    styleUrls: ['./terms.page.scss'],
-    standalone: true,
-    imports: [IonicModule]
+  selector: 'app-terms',
+  templateUrl: './terms.page.html',
+  styleUrls: ['./terms.page.scss'],
+  standalone: true,
+  imports: [IonicModule],
 })
 export default class TermsPage implements OnInit {
   params: Params;

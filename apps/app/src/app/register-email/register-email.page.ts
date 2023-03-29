@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { ValidateEqualModule } from 'ng-validate-equal';
 import { AuthenticationService } from '../authentication.service';
 import { isAuthError } from '../firebase-utils';
-import { ValidateEqualModule } from 'ng-validate-equal';
-import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-register-email',
-    templateUrl: './register-email.page.html',
-    styleUrls: ['./register-email.page.scss'],
-    standalone: true,
-    imports: [IonicModule, FormsModule, ValidateEqualModule]
+  selector: 'app-register-email',
+  templateUrl: './register-email.page.html',
+  styleUrls: ['./register-email.page.scss'],
+  standalone: true,
+  imports: [IonicModule, FormsModule, ValidateEqualModule],
 })
 export default class RegisterEmailPage {
   public user = {

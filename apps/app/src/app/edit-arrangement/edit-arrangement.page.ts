@@ -1,13 +1,13 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, emptyArrangement, emptyHymn, Hymn } from '../hymn';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 type EditHymn = {
   key: string;
@@ -17,11 +17,11 @@ type EditHymn = {
 };
 
 @Component({
-    selector: 'app-edit-arrangement',
-    templateUrl: './edit-arrangement.page.html',
-    styleUrls: ['./edit-arrangement.page.scss'],
-    standalone: true,
-    imports: [NgIf, IonicModule, FormsModule, NgFor, AsyncPipe]
+  selector: 'app-edit-arrangement',
+  templateUrl: './edit-arrangement.page.html',
+  styleUrls: ['./edit-arrangement.page.scss'],
+  standalone: true,
+  imports: [NgIf, IonicModule, FormsModule, NgFor, AsyncPipe],
 })
 export default class EditArrangementPage {
   edit$: Observable<EditHymn>;

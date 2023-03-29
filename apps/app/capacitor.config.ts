@@ -8,8 +8,8 @@ const config: CapacitorConfig = {
   plugins: {
     FirebaseAuthentication: {
       providers: ['google.com', 'facebook.com', 'twitter.com'],
-    }
-  }
+    },
+  },
 };
 
 export default config;

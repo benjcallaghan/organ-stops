@@ -1,16 +1,16 @@
+import { AsyncPipe, NgFor } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFireDatabase,
   SnapshotAction,
 } from '@angular/fire/compat/database';
-import { IonSegment, IonicModule } from '@ionic/angular';
+import { RouterLink } from '@angular/router';
+import { IonicModule, IonSegment } from '@ionic/angular';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { Hymn } from '../hymn';
-import { NgFor, AsyncPipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-songs',
