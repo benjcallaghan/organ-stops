@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-terms',
-  templateUrl: './terms.page.html',
-  styleUrls: ['./terms.page.scss'],
+    selector: 'app-terms',
+    templateUrl: './terms.page.html',
+    styleUrls: ['./terms.page.scss'],
+    standalone: true,
+    imports: [IonicModule]
 })
-export class TermsPage implements OnInit {
+export default class TermsPage implements OnInit {
   params: Params;
 
   constructor(private route: ActivatedRoute) {}

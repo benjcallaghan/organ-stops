@@ -6,17 +6,20 @@ import {
   FacebookAuthProvider,
   GoogleAuthProvider,
 } from '@angular/fire/auth';
-import { ActivatedRoute } from '@angular/router';
-import { AlertController, NavController } from '@ionic/angular';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AlertController, NavController, IonicModule } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 import { isAuthError } from '../firebase-utils';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.page.html',
-  styleUrls: ['./user.page.scss'],
+    selector: 'app-user',
+    templateUrl: './user.page.html',
+    styleUrls: ['./user.page.scss'],
+    standalone: true,
+    imports: [IonicModule, FormsModule, RouterLink]
 })
-export class UserPage {
+export default class UserPage {
   public user = {
     email: '',
     password: '',

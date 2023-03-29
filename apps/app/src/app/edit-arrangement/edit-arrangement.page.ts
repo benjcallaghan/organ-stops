@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, emptyArrangement, emptyHymn, Hymn } from '../hymn';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 type EditHymn = {
   key: string;
@@ -14,11 +17,13 @@ type EditHymn = {
 };
 
 @Component({
-  selector: 'app-edit-arrangement',
-  templateUrl: './edit-arrangement.page.html',
-  styleUrls: ['./edit-arrangement.page.scss'],
+    selector: 'app-edit-arrangement',
+    templateUrl: './edit-arrangement.page.html',
+    styleUrls: ['./edit-arrangement.page.scss'],
+    standalone: true,
+    imports: [NgIf, IonicModule, FormsModule, NgFor, AsyncPipe]
 })
-export class EditArrangementPage {
+export default class EditArrangementPage {
   edit$: Observable<EditHymn>;
 
   constructor(

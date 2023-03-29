@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AlertController, IonicModule } from '@ionic/angular';
 import firebase from 'firebase/compat/app';
 import { defer, Observable, zip } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, Hymn, OrganStop } from '../hymn';
+import { NgIf, NgFor, AsyncPipe, KeyValuePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-hymn',
-  templateUrl: './hymn.page.html',
-  styleUrls: ['./hymn.page.scss'],
+    selector: 'app-hymn',
+    templateUrl: './hymn.page.html',
+    styleUrls: ['./hymn.page.scss'],
+    standalone: true,
+    imports: [NgIf, IonicModule, NgFor, RouterLink, AsyncPipe, KeyValuePipe]
 })
-export class HymnPage {
+export default class HymnPage {
   hymnKey$: Observable<string>;
   user$: Observable<firebase.User>;
   hymn$: Observable<Hymn>;
