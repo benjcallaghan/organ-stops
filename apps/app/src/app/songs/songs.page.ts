@@ -7,17 +7,17 @@ import {
 import { IonSegment, IonicModule } from '@ionic/angular';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
-import { first, map, startWith, switchMap } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 import { Hymn } from '../hymn';
 import { NgFor, AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-songs',
-    templateUrl: 'songs.page.html',
-    styleUrls: ['songs.page.scss'],
-    standalone: true,
-    imports: [IonicModule, RouterLink, NgFor, AsyncPipe]
+  selector: 'app-songs',
+  templateUrl: 'songs.page.html',
+  styleUrls: ['songs.page.scss'],
+  standalone: true,
+  imports: [IonicModule, RouterLink, NgFor, AsyncPipe],
 })
 export default class SongsPage implements AfterViewInit {
   @ViewChild(IonSegment) sortSegment: IonSegment;
@@ -38,25 +38,5 @@ export default class SongsPage implements AfterViewInit {
           .snapshotChanges()
       )
     );
-  }
-
-  updateNames() {
-    this.db
-      .list('/hymns')
-      .snapshotChanges()
-      .pipe(
-        first(),
-        switchMap((list) => list)
-      )
-      .subscribe((hymn) => {
-        hymn.payload.child('/arrangements').forEach((arrangement) => {
-          const userNameNode = arrangement.child('/user/name');
-          const names = userNameNode.val().split(' ');
-          const maskedName = `${names[0]} ${names[names.length - 1][0]}.`;
-          userNameNode.ref.set(maskedName);
-          console.log(maskedName);
-        });
-        console.log('Done');
-      });
   }
 }
