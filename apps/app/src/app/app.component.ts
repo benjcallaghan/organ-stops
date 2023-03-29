@@ -1,6 +1,6 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, EnvironmentInjector } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth } from '@angular/fire/auth';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +13,7 @@ import { IonicModule } from '@ionic/angular';
 })
 export class AppComponent {
   constructor(
-    public auth: AngularFireAuth,
+    protected auth: Auth,
     protected environmentInjector: EnvironmentInjector
   ) {}
 

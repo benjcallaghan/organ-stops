@@ -1,9 +1,8 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth } from '@angular/fire/auth';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { bootstrapApplication } from '@angular/platform-browser';
 import {
   PreloadAllModules,
   provideRouter,
@@ -26,12 +25,10 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules)),
     importProvidersFrom(
-      BrowserModule,
       IonicModule.forRoot(),
-      AngularFireModule.initializeApp(environment.firebase),
-      AngularFireAuthModule,
       provideFirebaseApp(() => initializeApp(environment.firebase)),
       provideAuth(() => getAuth()),
+      provideDatabase(() => getDatabase()),
       ServiceWorkerModule.register('ngsw-worker.js', {
         enabled: environment.production,
         // Register the ServiceWorker as soon as the app is stable

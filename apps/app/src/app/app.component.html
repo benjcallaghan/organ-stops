@@ -14,12 +14,12 @@
           </ion-item>
         </ion-menu-toggle>
 
-        <ng-container *ngIf="auth.user | async as user; else signIn">
+        <ng-container *ngIf="auth.currentUser as user; else signIn">
           <ion-item-divider>
             <ion-label>Signed in as {{ user.displayName }}</ion-label>
           </ion-item-divider>
           <ion-menu-toggle>
-            <ion-item (click)="signOut()">Sign Out</ion-item>
+            <ion-item button (click)="signOut()">Sign Out</ion-item>
           </ion-menu-toggle>
         </ng-container>
         <ng-template #signIn>

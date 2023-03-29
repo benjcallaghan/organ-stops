@@ -1,16 +1,22 @@
 import { AsyncPipe, NgFor } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, User, user } from '@angular/fire/auth';
 import {
-  AngularFireDatabase,
-  SnapshotAction,
-} from '@angular/fire/compat/database';
+  Database,
+  listVal,
+  orderByChild,
+  query,
+  ref,
+} from '@angular/fire/database';
 import { RouterLink } from '@angular/router';
 import { IonicModule, IonSegment } from '@ionic/angular';
-import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { Hymn } from '../hymn';
+
+interface KeyedHymn extends Hymn {
+  key: string;
+}
 
 @Component({
   selector: 'app-songs',
@@ -21,11 +27,11 @@ import { Hymn } from '../hymn';
 })
 export default class SongsPage implements AfterViewInit {
   @ViewChild(IonSegment) sortSegment: IonSegment;
-  hymns$: Observable<SnapshotAction<Hymn>[]>;
-  user$: Observable<firebase.User>;
+  hymns$: Observable<KeyedHymn[]>;
+  user$: Observable<User>;
 
-  constructor(private db: AngularFireDatabase, auth: AngularFireAuth) {
-    this.user$ = auth.user;
+  constructor(private db: Database, auth: Auth) {
+    this.user$ = user(auth);
   }
 
   ngAfterViewInit() {
@@ -33,9 +39,12 @@ export default class SongsPage implements AfterViewInit {
       map((event) => event.detail.value),
       startWith('number'),
       switchMap((sortBy) =>
-        this.db
-          .list<Hymn>('/hymns', (ref) => ref.orderByChild(sortBy))
-          .snapshotChanges()
+        listVal<KeyedHymn>(
+          query(ref(this.db, '/hymns'), orderByChild(sortBy)),
+          {
+            keyField: 'key',
+          }
+        )
       )
     );
   }

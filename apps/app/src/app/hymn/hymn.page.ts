@@ -1,10 +1,9 @@
 import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Auth, User, user } from '@angular/fire/auth';
+import { Database, objectVal, ref, remove } from '@angular/fire/database';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertController, IonicModule } from '@ionic/angular';
-import firebase from 'firebase/compat/app';
 import { defer, Observable, zip } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Arrangement, Hymn, OrganStop } from '../hymn';
@@ -18,21 +17,19 @@ import { Arrangement, Hymn, OrganStop } from '../hymn';
 })
 export default class HymnPage {
   hymnKey$: Observable<string>;
-  user$: Observable<firebase.User>;
+  user$: Observable<User>;
   hymn$: Observable<Hymn>;
 
   constructor(
-    private db: AngularFireDatabase,
-    auth: AngularFireAuth,
-    route: ActivatedRoute,
+    private db: Database,
+    auth: Auth,
+    private route: ActivatedRoute,
     private alertController: AlertController
   ) {
     this.hymnKey$ = route.params.pipe(map((params) => params.key));
-    this.user$ = auth.user;
+    this.user$ = user(auth);
     this.hymn$ = this.hymnKey$.pipe(
-      switchMap((hymnKey) =>
-        db.object<Hymn>(`/hymns/${hymnKey}`).valueChanges()
-      )
+      switchMap((hymnKey) => objectVal<Hymn>(ref(db, `/hymns/${hymnKey}`)))
     );
   }
 
@@ -43,35 +40,31 @@ export default class HymnPage {
       .join(', ');
   }
 
-  remove(arrangement: { key: string; value: Arrangement }) {
-    const role$ = defer(async () => {
-      const alert = await this.alertController.create({
-        header: 'Are you sure?',
-        message:
-          'Deleting the arrangement prevents other users from seeing it. This action is irreversible.',
-        buttons: [
-          {
-            text: 'No',
-            role: 'cancel',
-          },
-          {
-            text: 'Yes, delete it!',
-            role: 'delete',
-          },
-        ],
-      });
-      await alert.present();
-
-      const { role } = await alert.onDidDismiss();
-      return role;
+  async remove(arrangement: { key: string; value: Arrangement }) {
+    const alert = await this.alertController.create({
+      header: 'Are you sure?',
+      message:
+        'Deleting the arrangement prevents other users from seeing it. This action is irreversible.',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+        },
+        {
+          text: 'Yes, delete it!',
+          role: 'delete',
+        },
+      ],
     });
+    await alert.present();
 
-    zip(role$, this.hymnKey$).subscribe(([role, hymnKey]) => {
-      if (role === 'delete') {
-        this.db
-          .object(`/hymns/${hymnKey}/arrangements/${arrangement.key}`)
-          .remove();
-      }
-    });
+    const { role } = await alert.onDidDismiss();
+    const hymnKey = this.route.snapshot.params.key;
+
+    if (role === 'delete') {
+      await remove(
+        ref(this.db, `/hymns/${hymnKey}/arrangements/${arrangement.key}`)
+      );
+    }
   }
 }
