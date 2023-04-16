@@ -38,7 +38,7 @@
     "@capacitor/haptics": "^4.1.0",
     "@capacitor/keyboard": "^4.1.1",
     "@capacitor/status-bar": "^4.1.1",
-    "@ionic/angular": "^6.7.1",
+    "@ionic/angular": "^7.0.2",
     "firebase": "^9.18.0",
     "ng-validate-equal": "^6.0.1",
     "rxjs": "~7.5.0",

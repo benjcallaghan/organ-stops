@@ -9,52 +9,47 @@
 
 <ion-content>
   <form #registerForm="ngForm" (ngSubmit)="registerUser()">
-    <ion-item>
-      <ion-label position="floating">First Name</ion-label>
-      <ion-input
-        type="text"
-        name="firstName"
-        required
-        [(ngModel)]="user.firstName"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Last Name</ion-label>
-      <ion-input
-        type="text"
-        name="lastName"
-        required
-        [(ngModel)]="user.lastName"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Email Address</ion-label>
-      <ion-input
-        type="email"
-        name="email"
-        required
-        [(ngModel)]="user.email"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input
-        type="password"
-        name="password"
-        required
-        [(ngModel)]="user.password"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input
-        type="password"
-        name="confirmPassword"
-        required
-        ngValidateEqual="password"
-        [(ngModel)]="user.confirmPassword"
-      ></ion-input>
-    </ion-item>
+    <ion-input
+      label="First Name"
+      labelPlacement="floating"
+      type="text"
+      name="firstName"
+      required
+      [(ngModel)]="user.firstName"
+    ></ion-input>
+    <ion-input
+      label="Last Name"
+      labelPlacement="floating"
+      type="text"
+      name="lastName"
+      required
+      [(ngModel)]="user.lastName"
+    ></ion-input>
+    <ion-input
+      label="Email Address"
+      labelPlacement="floating"
+      type="email"
+      name="email"
+      required
+      [(ngModel)]="user.email"
+    ></ion-input>
+    <ion-input
+      label="Password"
+      labelPlacement="floating"
+      type="password"
+      name="password"
+      required
+      [(ngModel)]="user.password"
+    ></ion-input>
+    <ion-input
+      label="Confirm Password"
+      labelPlacement="floating"
+      type="password"
+      name="confirmPassword"
+      required
+      ngValidateEqual="password"
+      [(ngModel)]="user.confirmPassword"
+    ></ion-input>
     <ion-button type="submit" expand="block" [disabled]="registerForm.invalid"
       >Register</ion-button
     >

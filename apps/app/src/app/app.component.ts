@@ -1,5 +1,5 @@
 import { AsyncPipe, NgIf } from '@angular/common';
-import { Component, EnvironmentInjector } from '@angular/core';
+import { Component } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
@@ -12,10 +12,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterLink, NgIf, AsyncPipe],
 })
 export class AppComponent {
-  constructor(
-    protected auth: Auth,
-    protected environmentInjector: EnvironmentInjector
-  ) {}
+  constructor(protected auth: Auth) {}
 
   signOut() {
     this.auth.signOut();
