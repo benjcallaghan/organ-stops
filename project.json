@@ -14,7 +14,7 @@
         "outputPath": "dist/organ-stops",
         "browser": "./src/main.ts",
         "tsConfig": "tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
+        "inlineStyleLanguage": "css",
         "assets": [
           {
             "glob": "**/*",
@@ -22,7 +22,7 @@
           }
         ],
         "styles": [
-          "src/styles.scss",
+          "src/styles.css",
           {
             "input": "node_modules/@ionic/angular/css/core.css"
           },
@@ -54,7 +54,7 @@
             "input": "node_modules/@ionic/angular/css/flex-utils.css"
           },
           {
-            "input": "src/theme/variables.scss"
+            "input": "src/theme/variables.css"
           }
         ]
       },
