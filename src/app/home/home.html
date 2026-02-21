@@ -13,8 +13,15 @@
 
   <ion-grid>
     <ion-row>
-      @for (item of items; track $index) {
-      <ion-col size="4">{{ item }}</ion-col>
+      @for (item of items; track item.id) {
+      <ion-col size="4">
+        <ion-item [routerLink]="['/collection', item.id]">
+          <ion-thumbnail>
+            <img alt="Thumbnail" />
+          </ion-thumbnail>
+          <ion-label>{{ item.name }}</ion-label>
+        </ion-item>
+      </ion-col>
       }
     </ion-row>
   </ion-grid>
