@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonCol, IonContent, IonGrid, IonHeader, IonRow, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonRow, IonCol],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class HomePage {}
+export class HomePage {
+  protected items = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
+}
