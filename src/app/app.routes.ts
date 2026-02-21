@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './home/home';
+import { BooksPage } from './books/books.page';
 
 export const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'books',
     pathMatch: 'full',
   },
   {
-    path: 'home',
-    component: HomePage,
+    path: 'books',
+    component: BooksPage,
   },
   {
     path: 'books/:id',
-    loadComponent: () => import('./book/book.page')
-  }
+    loadComponent: () => import('./book/book.page'),
+  },
 ];

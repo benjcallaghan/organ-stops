@@ -29,10 +29,10 @@ import {
     IonLabel,
     RouterLink,
   ],
-  templateUrl: './home.html',
-  styleUrl: './home.css',
+  templateUrl: './books.page.html',
+  styleUrl: './books.page.css',
 })
-export class HomePage {
+export class BooksPage {
   protected items = [
     {
       id: 1,
