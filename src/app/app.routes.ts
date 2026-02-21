@@ -11,4 +11,8 @@ export const appRoutes: Routes = [
     path: 'home',
     component: HomePage,
   },
+  {
+    path: 'books/:id',
+    loadComponent: () => import('./book/book.page')
+  }
 ];
