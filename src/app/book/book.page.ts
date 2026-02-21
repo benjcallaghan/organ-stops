@@ -11,6 +11,8 @@ import {
   IonNote,
   IonTitle,
   IonToolbar,
+  IonBackButton,
+  IonButtons,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -29,6 +31,8 @@ import {
     IonItem,
     IonNote,
     IonLabel,
+    IonBackButton,
+    IonButtons,
   ],
 })
 export default class BookPage {
