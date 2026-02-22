@@ -12,11 +12,11 @@ export const appRoutes: Routes = [
     component: BooksPage,
   },
   {
-    path: 'books/:id',
+    path: 'books/:bookId',
     loadComponent: () => import('./book/book.page'),
   },
   {
-    path: 'books/:id/:songId',
+    path: 'books/:bookId/songs/:songId',
     loadComponent: () => import('./song/song.page'),
   }
 ];

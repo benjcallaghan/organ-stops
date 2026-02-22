@@ -1,0 +1,19 @@
+/books/{book}
+    name: string
+    thumbnail: string
+
+/books/{book}/songs/{song}
+    name: string
+    page: integer
+
+/books/{book}/songs/{song}/arrangements/{arrangement}
+    author: string - no plan to store user data in Firestore, so reference is not applicable
+    score: integer - precomputed for fast reads, without dynamic aggregation
+    last_updated: timestamp - useful for security rules to ensure transactional updates when votes change
+    stops: map
+        Each key is the name of a group (Swell, Pedal, etc.)
+        Each value is an array of strings
+
+/books/{book}/songs/{song}/arrangements/{arrangement}/votes/{userId}
+    score: integer - values of -1 for down, 1 for up, and 0 for default
+
