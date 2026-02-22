@@ -1,4 +1,4 @@
-import { Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import {
   IonButton,
   IonIcon,
@@ -39,6 +39,7 @@ export interface Arrangement {
     IonLabel,
     IonItem,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArrangementComponent {
   arrangement = input.required<Arrangement>();

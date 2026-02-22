@@ -15,7 +15,7 @@
   </ion-header>
 
   <ion-accordion-group>
-    @for (arrangement of arrangements; track arrangement.id) {
+    @for (arrangement of arrangements(); track arrangement.id) {
     <ion-accordion>
       <ion-item slot="header">
         <ion-badge slot="start">{{ arrangement.score }}</ion-badge>

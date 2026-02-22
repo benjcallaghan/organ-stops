@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -38,7 +38,7 @@ import {
   ],
 })
 export default class SongPage {
-  protected arrangements: Arrangement[] = [
+  protected arrangements = signal<Arrangement[]>([
     {
       id: 1,
       author: 'First Name',
@@ -79,11 +79,19 @@ export default class SongPage {
       stops: {},
       userScore: -1,
     },
-  ];
+  ]);
 
   updateUserScore(arrangement: Arrangement, userScore: number) {
-    const scoreDiff = userScore - arrangement.userScore;
-    arrangement.userScore = userScore;
-    arrangement.score += scoreDiff;
+    // TODO: Write values back to Firestore and let it propagate changes.
+    this.arrangements.update(all => {      
+      const scoreDiff = userScore - arrangement.userScore;
+      const updated = {
+        ...arrangement,
+        userScore: userScore,
+        score: arrangement.score + scoreDiff
+      };
+      const index = all.indexOf(arrangement);
+      return all.toSpliced(index, 1, updated);
+    });
   }
 }
