@@ -10,15 +10,11 @@
         slot="start"
         fill="clear"
         size="large"
-        [ariaLabel]="arrangement().userScore === 1 ? 'Upvoted' : 'Upvote'"
+        [ariaLabel]="upvoteOptions().label"
       >
         <ion-icon
-          [name]="
-            arrangement().userScore === 1
-              ? 'caret-up-circle'
-              : 'caret-up-circle-outline'
-          "
-          [color]="arrangement().userScore === 1 ? 'warning' : 'secondary'"
+          [name]="upvoteOptions().icon"
+          [color]="upvoteOptions().color"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>
@@ -28,15 +24,11 @@
         slot="end"
         fill="clear"
         size="large"
-        [ariaLabel]="arrangement().userScore === -1 ? 'Downvoted' : 'Downvote'"
+        [ariaLabel]="downvoteOptions().label"
       >
         <ion-icon
-          [name]="
-            arrangement().userScore === -1
-              ? 'caret-down-circle'
-              : 'caret-down-circle-outline'
-          "
-          [color]="arrangement().userScore === -1 ? 'warning' : 'secondary'"
+          [name]="downvoteOptions().icon"
+          [color]="downvoteOptions().color"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>
