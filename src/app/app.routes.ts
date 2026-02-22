@@ -15,4 +15,8 @@ export const appRoutes: Routes = [
     path: 'books/:id',
     loadComponent: () => import('./book/book.page'),
   },
+  {
+    path: 'books/:id/:songId',
+    loadComponent: () => import('./song/song.page'),
+  }
 ];

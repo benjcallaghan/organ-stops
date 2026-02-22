@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonContent,
   IonHeader,
@@ -28,6 +29,7 @@ import {
     IonLabel,
     IonBackButton,
     IonButtons,
+    RouterLink,
   ],
 })
 export default class BookPage {

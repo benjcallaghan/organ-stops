@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Song Title</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Song Title</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-accordion-group>
+    @for (arrangement of arrangements; track arrangement.id) {
+    <ion-accordion>
+      <ion-item slot="header">
+        <ion-note slot="start">{{ arrangement.score }}</ion-note>
+        <ion-label>{{ arrangement.author }}</ion-label>
+      </ion-item>
+      <article slot="content" class="ion-padding">
+        User-provided Organ Arrangement
+      </article>
+    </ion-accordion>
+    }
+  </ion-accordion-group>
+</ion-content>
