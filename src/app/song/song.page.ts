@@ -9,6 +9,8 @@ import {
   IonItem,
   IonLabel,
   IonNote,
+  IonButtons,
+  IonBackButton,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -26,6 +28,8 @@ import {
     IonItem,
     IonLabel,
     IonNote,
+    IonButtons,
+    IonBackButton,
   ],
 })
 export default class SongPage {
