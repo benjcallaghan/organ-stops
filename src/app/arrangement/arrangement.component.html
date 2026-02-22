@@ -1,24 +1,26 @@
-<article class="ion-padding">
-  User-provided Organ Arrangement
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button aria-label="Upvote">
+<article>
+  <ion-list>
+    <ion-list-header class="ion-padding-horizontal">
+      <ion-label class="ion-text-center"
+        >Uploaded by {{ arrangement().author }}</ion-label
+      >
+    </ion-list-header>
+    <ion-item>
+      <ion-button slot="start" fill="clear" size="large" aria-label="Upvote">
         <ion-icon
           name="caret-up-circle-outline"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>
       </ion-button>
-    </ion-buttons>
-    <ion-badge>{{ arrangement().score }}</ion-badge>
-    <ion-buttons slot="end">
-      <ion-button aria-label="Downvote">
+      <ion-badge>{{ arrangement().score }}</ion-badge>
+      <ion-button slot="end" fill="clear" size="large" aria-label="Downvote">
         <ion-icon
           name="caret-down-circle-outline"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>
       </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    </ion-item>
+  </ion-list>
 </article>

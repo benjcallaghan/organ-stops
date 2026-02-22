@@ -1,10 +1,12 @@
 import { Component, input } from '@angular/core';
 import {
-  IonToolbar,
-  IonButtons,
   IonButton,
   IonIcon,
   IonBadge,
+  IonListHeader,
+  IonList,
+  IonLabel,
+  IonItem,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { caretDownCircleOutline, caretUpCircleOutline } from 'ionicons/icons';
@@ -22,7 +24,15 @@ export interface Arrangement {
   templateUrl: './arrangement.component.html',
   styleUrls: ['./arrangement.component.css'],
   standalone: true,
-  imports: [IonToolbar, IonButtons, IonButton, IonIcon, IonBadge],
+  imports: [
+    IonButton,
+    IonIcon,
+    IonBadge,
+    IonListHeader,
+    IonList,
+    IonLabel,
+    IonItem,
+  ],
 })
 export class ArrangementComponent {
   arrangement = input.required<Arrangement>();
