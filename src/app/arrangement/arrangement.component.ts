@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import {
   IonButton,
   IonIcon,
@@ -42,6 +42,8 @@ export interface Arrangement {
 })
 export class ArrangementComponent {
   arrangement = input.required<Arrangement>();
+  userVoted = output<number>();
+
   protected upvoteOptions = computed(() =>
     this.arrangement().userScore === 1
       ? {
@@ -76,5 +78,17 @@ export class ArrangementComponent {
       caretUpCircle,
       caretUpCircleOutline,
     });
+  }
+
+  upvote() {
+    // Upvote if default or downvoted, clear vote if upvoted.
+    const newVote = this.arrangement().userScore === 1 ? 0 : 1;
+    this.userVoted.emit(newVote);
+  }
+
+  downvote() {
+    // Downvote if default or upvoted, clear vote if downvoted.
+    const newVote = this.arrangement().userScore === -1 ? 0 : -1;
+    this.userVoted.emit(newVote);
   }
 }

@@ -80,4 +80,10 @@ export default class SongPage {
       userScore: -1,
     },
   ];
+
+  updateUserScore(arrangement: Arrangement, userScore: number) {
+    const scoreDiff = userScore - arrangement.userScore;
+    arrangement.userScore = userScore;
+    arrangement.score += scoreDiff;
+  }
 }

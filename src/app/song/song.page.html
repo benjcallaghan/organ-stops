@@ -21,7 +21,11 @@
         <ion-badge slot="start">{{ arrangement.score }}</ion-badge>
         <ion-label>{{ arrangement.author }}</ion-label>
       </ion-item>
-      <app-arrangement slot="content" [arrangement]="arrangement"></app-arrangement>
+      <app-arrangement
+        slot="content"
+        [arrangement]="arrangement"
+        (userVoted)="updateUserScore(arrangement, $event)"
+      ></app-arrangement>
     </ion-accordion>
     }
   </ion-accordion-group>
