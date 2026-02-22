@@ -11,7 +11,6 @@ import {
   IonThumbnail,
   IonItem,
   IonLabel,
-  IonRouterLink,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -33,7 +32,7 @@ import {
   styleUrl: './books.page.css',
 })
 export class BooksPage {
-  protected items = [
+  protected books = [
     {
       id: 1,
       name: 'First',

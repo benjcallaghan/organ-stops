@@ -1,7 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -25,8 +22,6 @@ import {
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
     IonList,
     IonItem,
     IonNote,
@@ -36,7 +31,6 @@ import {
   ],
 })
 export default class BookPage {
-  private route = inject(ActivatedRoute);
   protected songs = [
     { id: 1, page: 1, name: 'First Song' },
     { id: 2, page: 2, name: 'Second Song' },

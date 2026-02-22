@@ -13,13 +13,13 @@
 
   <ion-grid>
     <ion-row>
-      @for (item of items; track item.id) {
+      @for (book of books; track book.id) {
       <ion-col size="4">
-        <ion-item [routerLink]="['/books', item.id]">
+        <ion-item [routerLink]="[book.id]">
           <ion-thumbnail>
             <img alt="Thumbnail" />
           </ion-thumbnail>
-          <ion-label>{{ item.name }}</ion-label>
+          <ion-label>{{ book.name }}</ion-label>
         </ion-item>
       </ion-col>
       }
