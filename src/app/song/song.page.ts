@@ -8,10 +8,14 @@ import {
   IonAccordion,
   IonItem,
   IonLabel,
-  IonNote,
   IonButtons,
   IonBackButton,
+  IonBadge,
+  IonIcon,
+  IonButton,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { caretDownCircleOutline, caretUpCircleOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-song',
@@ -27,9 +31,11 @@ import {
     IonAccordion,
     IonItem,
     IonLabel,
-    IonNote,
     IonButtons,
     IonBackButton,
+    IonBadge,
+    IonIcon,
+    IonButton,
   ],
 })
 export default class SongPage {
@@ -40,4 +46,8 @@ export default class SongPage {
     { id: 4, author: 'Fourth Name', score: 0 },
     { id: 5, author: 'Fifth Name', score: -3 },
   ];
+
+  constructor() {
+    addIcons({ caretUpCircleOutline, caretDownCircleOutline });
+  }
 }
