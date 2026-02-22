@@ -12,7 +12,10 @@ import {
   IonBackButton,
   IonBadge,
 } from '@ionic/angular/standalone';
-import { Arrangement, ArrangementComponent } from '../arrangement/arrangement.component';
+import {
+  Arrangement,
+  ArrangementComponent,
+} from '../arrangement/arrangement.component';
 
 @Component({
   selector: 'app-song',
@@ -42,6 +45,7 @@ export default class SongPage {
       score: 50,
       lastUpdated: new Date(),
       stops: {},
+      userScore: 1,
     },
     {
       id: 2,
@@ -49,6 +53,7 @@ export default class SongPage {
       score: 40,
       lastUpdated: new Date(),
       stops: {},
+      userScore: 0,
     },
     {
       id: 3,
@@ -56,6 +61,7 @@ export default class SongPage {
       score: 20,
       lastUpdated: new Date(),
       stops: {},
+      userScore: 0,
     },
     {
       id: 4,
@@ -63,6 +69,7 @@ export default class SongPage {
       score: 0,
       lastUpdated: new Date(),
       stops: {},
+      userScore: 0,
     },
     {
       id: 5,
@@ -70,6 +77,7 @@ export default class SongPage {
       score: -3,
       lastUpdated: new Date(),
       stops: {},
+      userScore: -1,
     },
   ];
 }

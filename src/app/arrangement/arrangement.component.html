@@ -6,17 +6,37 @@
       >
     </ion-list-header>
     <ion-item>
-      <ion-button slot="start" fill="clear" size="large" aria-label="Upvote">
+      <ion-button
+        slot="start"
+        fill="clear"
+        size="large"
+        [ariaLabel]="arrangement().userScore === 1 ? 'Upvoted' : 'Upvote'"
+      >
         <ion-icon
-          name="caret-up-circle-outline"
+          [name]="
+            arrangement().userScore === 1
+              ? 'caret-up-circle'
+              : 'caret-up-circle-outline'
+          "
+          [color]="arrangement().userScore === 1 ? 'warning' : 'secondary'"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>
       </ion-button>
       <ion-badge>{{ arrangement().score }}</ion-badge>
-      <ion-button slot="end" fill="clear" size="large" aria-label="Downvote">
+      <ion-button
+        slot="end"
+        fill="clear"
+        size="large"
+        [ariaLabel]="arrangement().userScore === -1 ? 'Downvoted' : 'Downvote'"
+      >
         <ion-icon
-          name="caret-down-circle-outline"
+          [name]="
+            arrangement().userScore === -1
+              ? 'caret-down-circle'
+              : 'caret-down-circle-outline'
+          "
+          [color]="arrangement().userScore === -1 ? 'warning' : 'secondary'"
           slot="icon-only"
           aria-hidden="true"
         ></ion-icon>

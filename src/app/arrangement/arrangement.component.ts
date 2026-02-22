@@ -9,7 +9,12 @@ import {
   IonItem,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { caretDownCircleOutline, caretUpCircleOutline } from 'ionicons/icons';
+import {
+  caretDownCircle,
+  caretDownCircleOutline,
+  caretUpCircle,
+  caretUpCircleOutline,
+} from 'ionicons/icons';
 
 export interface Arrangement {
   id: number;
@@ -17,6 +22,7 @@ export interface Arrangement {
   score: number;
   lastUpdated: Date;
   stops: Record<string, string[]>;
+  userScore: number;
 }
 
 @Component({
@@ -38,6 +44,11 @@ export class ArrangementComponent {
   arrangement = input.required<Arrangement>();
 
   constructor() {
-    addIcons({ caretDownCircleOutline, caretUpCircleOutline });
+    addIcons({
+      caretDownCircle,
+      caretDownCircleOutline,
+      caretUpCircle,
+      caretUpCircleOutline,
+    });
   }
 }
