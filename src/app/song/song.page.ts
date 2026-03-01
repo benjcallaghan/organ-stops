@@ -81,7 +81,7 @@ export default class SongPage {
     },
   ]);
 
-  updateUserScore(arrangement: Arrangement, userScore: number) {
+  updateUserScore(arrangement: Arrangement, index: number, userScore: number) {
     // TODO: Write values back to Firestore and let it propagate changes.
     this.arrangements.update(all => {      
       const scoreDiff = userScore - arrangement.userScore;
@@ -90,7 +90,6 @@ export default class SongPage {
         userScore: userScore,
         score: arrangement.score + scoreDiff
       };
-      const index = all.indexOf(arrangement);
       return all.toSpliced(index, 1, updated);
     });
   }

@@ -24,7 +24,7 @@
       <app-arrangement
         slot="content"
         [arrangement]="arrangement"
-        (userVoted)="updateUserScore(arrangement, $event)"
+        (userVoted)="updateUserScore(arrangement, $index, $event)"
       ></app-arrangement>
     </ion-accordion>
     }
