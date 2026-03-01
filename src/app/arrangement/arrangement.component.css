@@ -2,3 +2,12 @@ ion-badge {
     width: 100%;
     display: block;
 }
+
+.keyboard-name {
+    flex: 0 1 5rem;
+}
+
+.keyboard-values {
+    flex: 1;
+    text-align: right;
+}
