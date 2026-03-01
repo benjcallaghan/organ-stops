@@ -19,7 +19,7 @@ import {
   Arrangement,
   ArrangementComponent,
 } from '../arrangement/arrangement.component';
-import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
+import { EditStopsPage } from '../edit-stops/edit-stops.page';
 
 @Component({
   selector: 'app-song',
@@ -40,7 +40,7 @@ import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
     IonBadge,
     ArrangementComponent,
     IonModal,
-    EditArrangementPage,
+    EditStopsPage,
     IonButton,
   ],
 })
@@ -101,7 +101,7 @@ export default class SongPage {
     });
   }
 
-  updateArrangement(event: CustomEvent<OverlayEventDetail>) {
+  updateStops(event: CustomEvent<OverlayEventDetail>) {
     if (event.detail.role === 'cancel') {
       return;
     }

@@ -13,9 +13,9 @@ import {
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-edit-arrangement',
-  templateUrl: './edit-arrangement.page.html',
-  styleUrls: ['./edit-arrangement.page.css'],
+  selector: 'app-edit-stops',
+  templateUrl: './edit-stops.page.html',
+  styleUrls: ['./edit-stops.page.css'],
   standalone: true,
   imports: [
     IonContent,
@@ -29,7 +29,7 @@ import {
     IonLabel,
   ],
 })
-export class EditArrangementPage {
+export class EditStopsPage {
   private parentModal = inject(IonModal);
 
   cancel() {
