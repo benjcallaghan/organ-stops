@@ -20,7 +20,7 @@
     @for (arrangement of arrangements(); track arrangement.id) {
     <ion-accordion>
       <ion-item slot="header">
-        <ion-badge slot="start">{{ arrangement.score }}</ion-badge>
+        <ion-badge slot="start" color="secondary">{{ arrangement.score }}</ion-badge>
         <ion-label>{{ arrangement.author }}</ion-label>
       </ion-item>
       <app-arrangement
