@@ -1,21 +1,10 @@
 import { Component, signal } from '@angular/core';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonAccordionGroup,
-  IonAccordion,
-  IonItem,
-  IonLabel,
-  IonButtons,
-  IonBackButton,
-  IonBadge,
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonButtons, IonBackButton, IonBadge, IonModal, IonButton } from '@ionic/angular/standalone';
 import {
   Arrangement,
   ArrangementComponent,
 } from '../arrangement/arrangement.component';
+import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
 
 @Component({
   selector: 'app-song',
@@ -35,7 +24,10 @@ import {
     IonBackButton,
     IonBadge,
     ArrangementComponent,
-  ],
+    IonModal,
+    EditArrangementPage,
+    IonButton
+],
 })
 export default class SongPage {
   protected arrangements = signal<Arrangement[]>([
@@ -83,12 +75,12 @@ export default class SongPage {
 
   updateUserScore(arrangement: Arrangement, index: number, userScore: number) {
     // TODO: Write values back to Firestore and let it propagate changes.
-    this.arrangements.update(all => {      
+    this.arrangements.update((all) => {
       const scoreDiff = userScore - arrangement.userScore;
       const updated = {
         ...arrangement,
         userScore: userScore,
-        score: arrangement.score + scoreDiff
+        score: arrangement.score + scoreDiff,
       };
       return all.toSpliced(index, 1, updated);
     });

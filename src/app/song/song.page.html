@@ -14,6 +14,8 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-button id="create-arrangement" expand="block">Create Arrangement</ion-button>
+
   <ion-accordion-group>
     @for (arrangement of arrangements(); track arrangement.id) {
     <ion-accordion>
@@ -29,4 +31,10 @@
     </ion-accordion>
     }
   </ion-accordion-group>
+
+  <ion-modal trigger="create-arrangement">
+    <ng-template>
+      <app-edit-arrangement></app-edit-arrangement>
+    </ng-template>
+  </ion-modal>
 </ion-content>
