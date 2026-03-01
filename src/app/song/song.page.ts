@@ -1,5 +1,20 @@
 import { Component, signal } from '@angular/core';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonAccordionGroup, IonAccordion, IonItem, IonLabel, IonButtons, IonBackButton, IonBadge, IonModal, IonButton } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonAccordionGroup,
+  IonAccordion,
+  IonItem,
+  IonLabel,
+  IonButtons,
+  IonBackButton,
+  IonBadge,
+  IonModal,
+  IonButton,
+} from '@ionic/angular/standalone';
+import { OverlayEventDetail } from '@ionic/core/components';
 import {
   Arrangement,
   ArrangementComponent,
@@ -26,8 +41,8 @@ import { EditArrangementPage } from '../edit-arrangement/edit-arrangement.page';
     ArrangementComponent,
     IonModal,
     EditArrangementPage,
-    IonButton
-],
+    IonButton,
+  ],
 })
 export default class SongPage {
   protected arrangements = signal<Arrangement[]>([
@@ -84,5 +99,23 @@ export default class SongPage {
       };
       return all.toSpliced(index, 1, updated);
     });
+  }
+
+  updateArrangement(event: CustomEvent<OverlayEventDetail>) {
+    if (event.detail.role === 'cancel') {
+      return;
+    }
+
+    this.arrangements.update((all) => [
+      ...all,
+      {
+        id: all.length + 1,
+        author: 'Current User',
+        lastUpdated: new Date(),
+        score: 0,
+        stops: {},
+        userScore: 0,
+      },
+    ]);
   }
 }

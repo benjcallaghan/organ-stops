@@ -32,7 +32,7 @@
     }
   </ion-accordion-group>
 
-  <ion-modal trigger="create-arrangement">
+  <ion-modal trigger="create-arrangement" (didDismiss)="updateArrangement($event)">
     <ng-template>
       <app-edit-arrangement></app-edit-arrangement>
     </ng-template>
