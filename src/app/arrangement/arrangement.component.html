@@ -8,7 +8,7 @@
 
     @for (keyboard of arrangement().stops | keyvalue; track keyboard.key) {
       <ion-item>
-        <ion-label class="keyboard-name">{{ keyboard.key }}</ion-label>
+        <ion-label class="keyboard-name" slot="start">{{ keyboard.key }}</ion-label>
         <ion-text color="dark" class="keyboard-values">{{ keyboard.value.join(', ') }}</ion-text>
       </ion-item>
     }
