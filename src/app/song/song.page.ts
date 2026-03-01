@@ -51,7 +51,11 @@ export default class SongPage {
       author: 'First Name',
       score: 50,
       lastUpdated: new Date(),
-      stops: {},
+      stops: {
+        Pedal: ['Diapason 16', 'Flute 8', 'Choral Bass 4'],
+        Swell: ['Viola Pomposa 8', 'Octave 4'],
+        Great: ['Diapason 8', 'Harmonic Flute 8', 'Fifteenth 2'],
+      },
       userScore: 1,
     },
     {

@@ -5,6 +5,14 @@
         >Uploaded by {{ arrangement().author }}</ion-label
       >
     </ion-list-header>
+
+    @for (keyboard of arrangement().stops | keyvalue; track keyboard.key) {
+      <ion-item>
+        <ion-label>{{ keyboard.key }}</ion-label>
+        <ion-text color="dark">{{ keyboard.value.join(', ') }}</ion-text>
+      </ion-item>
+    }
+
     <ion-item>
       <ion-button
         slot="start"

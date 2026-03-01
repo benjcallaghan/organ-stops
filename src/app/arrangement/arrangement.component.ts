@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { KeyValuePipe } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  output,
+} from '@angular/core';
 import {
   IonButton,
   IonIcon,
@@ -7,6 +14,7 @@ import {
   IonList,
   IonLabel,
   IonItem,
+  IonText,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
@@ -38,6 +46,8 @@ export interface Arrangement {
     IonList,
     IonLabel,
     IonItem,
+    KeyValuePipe,
+    IonText,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
