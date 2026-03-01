@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -20,6 +20,9 @@ import {
   ArrangementComponent,
 } from '../arrangement/arrangement.component';
 import { EditStopsPage } from '../edit-stops/edit-stops.page';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-song',
@@ -45,6 +48,10 @@ import { EditStopsPage } from '../edit-stops/edit-stops.page';
   ],
 })
 export default class SongPage {
+  private route = inject(ActivatedRoute);
+  private routeParams = toSignal(this.route.params);
+  protected parentRoutePath = computed(() => `/books/${this.routeParams()['bookId']}`);
+
   protected arrangements = signal<Arrangement[]>([
     {
       id: 1,
@@ -52,7 +59,14 @@ export default class SongPage {
       score: 50,
       lastUpdated: new Date(),
       stops: {
-        Pedal: ['Diapason 16', 'Flute 8', 'Choral Bass 4', 'More', 'MORE', 'MORE!!!!'],
+        Pedal: [
+          'Diapason 16',
+          'Flute 8',
+          'Choral Bass 4',
+          'More',
+          'MORE',
+          'MORE!!!!',
+        ],
         Swell: ['Viola Pomposa 8', 'Octave 4'],
         Great: ['Diapason 8', 'Harmonic Flute 8', 'Fifteenth 2'],
       },
