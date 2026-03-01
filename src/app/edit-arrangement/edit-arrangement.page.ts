@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -9,6 +9,7 @@ import {
   IonButtons,
   IonButton,
   IonLabel,
+  IonModal,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -28,4 +29,14 @@ import {
     IonLabel,
   ],
 })
-export class EditArrangementPage {}
+export class EditArrangementPage {
+  private parentModal = inject(IonModal);
+
+  cancel() {
+    this.parentModal.dismiss(null, 'cancel');
+  }
+
+  save() {
+    this.parentModal.dismiss(null, 'save');
+  }
+}
