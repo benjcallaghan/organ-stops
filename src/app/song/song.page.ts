@@ -21,7 +21,6 @@ import {
 } from '../arrangement/arrangement.component';
 import { EditStopsPage } from '../edit-stops/edit-stops.page';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -50,7 +49,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export default class SongPage {
   private route = inject(ActivatedRoute);
   private routeParams = toSignal(this.route.params);
-  protected parentRoutePath = computed(() => `/books/${this.routeParams()['bookId']}`);
+  protected parentRoutePath = computed(
+    () => `/books/${this.routeParams()['bookId']}`,
+  );
 
   protected arrangements = signal<Arrangement[]>([
     {
