@@ -7,4 +7,4 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App { }
+export class App {}

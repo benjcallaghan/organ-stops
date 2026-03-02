@@ -14,13 +14,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button id="create-arrangement" expand="block">Create Arrangement</ion-button>
+  <ion-button id="create-arrangement" expand="block"
+    >Create Arrangement</ion-button
+  >
 
   <ion-accordion-group>
     @for (arrangement of arrangements(); track arrangement.id) {
     <ion-accordion>
       <ion-item slot="header">
-        <ion-badge slot="start" color="secondary">{{ arrangement.score }}</ion-badge>
+        <ion-badge slot="start" color="secondary"
+          >{{ arrangement.score }}</ion-badge
+        >
         <ion-label>{{ arrangement.author }}</ion-label>
       </ion-item>
       <app-arrangement
@@ -32,7 +36,11 @@
     }
   </ion-accordion-group>
 
-  <ion-modal trigger="create-arrangement" (didDismiss)="updateStops($event)" aria-label="Edit Stops">
+  <ion-modal
+    trigger="create-arrangement"
+    (didDismiss)="updateStops($event)"
+    aria-label="Edit Stops"
+  >
     <ng-template>
       <app-edit-stops></app-edit-stops>
     </ng-template>
