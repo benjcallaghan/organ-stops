@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonCol,
@@ -12,6 +12,7 @@ import {
   IonItem,
   IonLabel,
 } from '@ionic/angular/standalone';
+import { Songs } from '../songs';
 
 @Component({
   selector: 'app-home',
@@ -32,26 +33,6 @@ import {
   styleUrl: './books.page.css',
 })
 export class BooksPage {
-  protected books = [
-    {
-      id: 1,
-      name: 'First',
-    },
-    {
-      id: 2,
-      name: 'Second',
-    },
-    {
-      id: 3,
-      name: 'Third',
-    },
-    {
-      id: 4,
-      name: 'Fourth',
-    },
-    {
-      id: 5,
-      name: 'Fifth',
-    },
-  ];
+  readonly #songs = inject(Songs);
+  protected books = this.#songs.books;
 }

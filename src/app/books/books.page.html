@@ -13,7 +13,7 @@
 
   <ion-grid>
     <ion-row>
-      @for (book of books; track book.id) {
+      @for (book of books(); track book.id) {
       <ion-col size="4">
         <ion-item [routerLink]="[book.id]">
           <ion-thumbnail>
