@@ -15,14 +15,11 @@ import {
   IonButton,
 } from '@ionic/angular/standalone';
 import { OverlayEventDetail } from '@ionic/core/components';
-import {
-  Arrangement,
-  ArrangementComponent,
-} from '../arrangement/arrangement.component';
+import { ArrangementComponent } from '../arrangement/arrangement.component';
 import { EditStopsPage } from '../edit-stops/edit-stops.page';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Songs } from '../songs';
+import { Arrangement, Songs } from '../songs';
 
 @Component({
   selector: 'app-song',
@@ -56,7 +53,10 @@ export default class SongPage {
   protected parentRoutePath = computed(() => `/books/${this.#bookId()}`);
 
   #songs = inject(Songs);
-  protected arrangements = this.#songs.getArrangements(this.#bookId, this.#songId);
+  protected arrangements = this.#songs.getArrangements(
+    this.#bookId,
+    this.#songId,
+  );
 
   updateUserScore(arrangement: Arrangement, index: number, userScore: number) {
     // TODO: Write values back to Firestore and let it propagate changes.

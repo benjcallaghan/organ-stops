@@ -1,5 +1,27 @@
 import { computed, Injectable, Signal, signal } from '@angular/core';
 
+export interface Arrangement {
+  id: number;
+  author: string;
+  score: number;
+  lastUpdated: Date;
+  stops: Record<string, string[]>;
+  userScore: number;
+}
+
+export interface Song {
+  id: number;
+  page: number;
+  name: string;
+  arrangements: Arrangement[];
+}
+
+export interface Book {
+  id: number;
+  name: string;
+  songs: Song[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -28,7 +50,7 @@ export class Songs {
     );
   }
 
-  #createBook() {
+  #createBook(): Book {
     const id = this.#nextId++;
     return {
       id,
@@ -45,7 +67,7 @@ export class Songs {
     };
   }
 
-  #createSong() {
+  #createSong(): Song {
     const id = this.#nextId++;
     return {
       id,

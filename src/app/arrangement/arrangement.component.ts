@@ -23,15 +23,7 @@ import {
   caretUpCircle,
   caretUpCircleOutline,
 } from 'ionicons/icons';
-
-export interface Arrangement {
-  id: number;
-  author: string;
-  score: number;
-  lastUpdated: Date;
-  stops: Record<string, string[]>;
-  userScore: number;
-}
+import { Arrangement } from '../songs';
 
 @Component({
   selector: 'app-arrangement',
