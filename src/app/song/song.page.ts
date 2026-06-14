@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -22,6 +22,7 @@ import {
 import { EditStopsPage } from '../edit-stops/edit-stops.page';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Songs } from '../songs';
 
 @Component({
   selector: 'app-song',
@@ -47,77 +48,27 @@ import { toSignal } from '@angular/core/rxjs-interop';
   ],
 })
 export default class SongPage {
-  private route = inject(ActivatedRoute);
-  private routeParams = toSignal(this.route.params);
-  protected parentRoutePath = computed(
-    () => `/books/${this.routeParams()['bookId']}`,
-  );
+  #route = inject(ActivatedRoute);
+  #routeParams = toSignal(this.#route.params);
+  #bookId = computed(() => Number(this.#routeParams()?.['bookId']));
+  #songId = computed(() => Number(this.#routeParams()?.['songId']));
 
-  protected arrangements = signal<Arrangement[]>([
-    {
-      id: 1,
-      author: 'First Name',
-      score: 50,
-      lastUpdated: new Date(),
-      stops: {
-        Pedal: [
-          'Diapason 16',
-          'Flute 8',
-          'Choral Bass 4',
-          'More',
-          'MORE',
-          'MORE!!!!',
-        ],
-        Swell: ['Viola Pomposa 8', 'Octave 4'],
-        Great: ['Diapason 8', 'Harmonic Flute 8', 'Fifteenth 2'],
-      },
-      userScore: 1,
-    },
-    {
-      id: 2,
-      author: 'Second Name',
-      score: 40,
-      lastUpdated: new Date(),
-      stops: {},
-      userScore: 0,
-    },
-    {
-      id: 3,
-      author: 'Third Name',
-      score: 20,
-      lastUpdated: new Date(),
-      stops: {},
-      userScore: 0,
-    },
-    {
-      id: 4,
-      author: 'Fourth Name',
-      score: 0,
-      lastUpdated: new Date(),
-      stops: {},
-      userScore: 0,
-    },
-    {
-      id: 5,
-      author: 'Fifth Name',
-      score: -3,
-      lastUpdated: new Date(),
-      stops: {},
-      userScore: -1,
-    },
-  ]);
+  protected parentRoutePath = computed(() => `/books/${this.#bookId()}`);
+
+  #songs = inject(Songs);
+  protected arrangements = this.#songs.getArrangements(this.#bookId, this.#songId);
 
   updateUserScore(arrangement: Arrangement, index: number, userScore: number) {
     // TODO: Write values back to Firestore and let it propagate changes.
-    this.arrangements.update((all) => {
-      const scoreDiff = userScore - arrangement.userScore;
-      const updated = {
-        ...arrangement,
-        userScore: userScore,
-        score: arrangement.score + scoreDiff,
-      };
-      return all.toSpliced(index, 1, updated);
-    });
+    // this.arrangements.update((all) => {
+    //   const scoreDiff = userScore - arrangement.userScore;
+    //   const updated = {
+    //     ...arrangement,
+    //     userScore: userScore,
+    //     score: arrangement.score + scoreDiff,
+    //   };
+    //   return all.toSpliced(index, 1, updated);
+    // });
   }
 
   updateStops(event: CustomEvent<OverlayEventDetail>) {
@@ -125,16 +76,16 @@ export default class SongPage {
       return;
     }
 
-    this.arrangements.update((all) => [
-      ...all,
-      {
-        id: all.length + 1,
-        author: 'Current User',
-        lastUpdated: new Date(),
-        score: 0,
-        stops: {},
-        userScore: 0,
-      },
-    ]);
+    // this.arrangements.update((all) => [
+    //   ...all,
+    //   {
+    //     id: all.length + 1,
+    //     author: 'Current User',
+    //     lastUpdated: new Date(),
+    //     score: 0,
+    //     stops: {},
+    //     userScore: 0,
+    //   },
+    // ]);
   }
 }
