@@ -67,16 +67,6 @@ export default class SongPage {
       return;
     }
 
-    // this.arrangements.update((all) => [
-    //   ...all,
-    //   {
-    //     id: all.length + 1,
-    //     author: 'Current User',
-    //     lastUpdated: new Date(),
-    //     score: 0,
-    //     stops: {},
-    //     userScore: 0,
-    //   },
-    // ]);
+    this.#songs.addArrangement(this.#bookId(), this.#songId());
   }
 }

@@ -88,6 +88,34 @@ export class Songs {
     });
   }
 
+  addArrangement(bookId: number, songId: number) {
+    this.#books.update((books) => {
+      const bookIndex = books.findIndex((b) => b.id === bookId);
+      const oldBook = books[bookIndex];
+
+      const songIndex = oldBook.songs.findIndex((s) => s.id === songId);
+      const oldSong = oldBook.songs[songIndex];
+
+      const newArrangement: Arrangement = {
+        id: this.#nextId++,
+        author: 'Current User',
+        lastUpdated: new Date(),
+        score: 0,
+        stops: {},
+        userScore: 0,
+      };
+      const newSong: Song = {
+        ...oldSong,
+        arrangements: [...oldSong.arrangements, newArrangement],
+      };
+      const newBook: Book = {
+        ...oldBook,
+        songs: oldBook.songs.toSpliced(songIndex, 1, newSong),
+      };
+      return books.toSpliced(bookIndex, 1, newBook);
+    });
+  }
+
   #createBook(): Book {
     const id = this.#nextId++;
     return {
