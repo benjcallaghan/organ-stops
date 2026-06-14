@@ -4,27 +4,22 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class Songs {
+  #nextId = 0;
+
   #books = signal([
-    {
-      id: 1,
-      name: 'First',
-    },
-    {
-      id: 2,
-      name: 'Second',
-    },
-    {
-      id: 3,
-      name: 'Third',
-    },
-    {
-      id: 4,
-      name: 'Fourth',
-    },
-    {
-      id: 5,
-      name: 'Fifth',
-    },
+    this.#createBook(),
+    this.#createBook(),
+    this.#createBook(),
+    this.#createBook(),
+    this.#createBook(),
   ]);
   books = this.#books.asReadonly();
+
+  #createBook() {
+    const id = this.#nextId++;
+    return {
+      id,
+      name: `Book ${id}`,
+    };
+  }
 }
