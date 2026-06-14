@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
   IonContent,
   IonHeader,
@@ -12,6 +13,7 @@ import {
   IonBackButton,
   IonButtons,
 } from '@ionic/angular/standalone';
+import { Songs } from '../songs';
 
 @Component({
   selector: 'app-book',
@@ -33,12 +35,10 @@ import {
   ],
 })
 export default class BookPage {
-  protected songs = [
-    { id: 1, page: 1, name: 'First Song' },
-    { id: 2, page: 2, name: 'Second Song' },
-    { id: 3, page: 3, name: 'Third Song' },
-    { id: 4, page: 4, name: 'Fourth Song' },
-    { id: 5, page: 5, name: 'Fifth Song' },
-    { id: 6, page: 6, name: 'Sixth Song' },
-  ];
+  #route = inject(ActivatedRoute);
+  #routeParams = toSignal(this.#route.params);
+  #bookId = computed(() => Number(this.#routeParams()?.['bookId']));
+
+  #songs = inject(Songs);
+  protected songs = this.#songs.getSongs(this.#bookId);
 }

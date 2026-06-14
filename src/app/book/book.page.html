@@ -15,7 +15,7 @@
   </ion-header>
 
   <ion-list>
-    @for (song of songs; track song.id) {
+    @for (song of songs(); track song.id) {
     <ion-item [routerLink]="['songs', song.id]">
       <ion-note slot="start">{{ song.page }}</ion-note>
       <ion-label>{{ song.name }}</ion-label>
