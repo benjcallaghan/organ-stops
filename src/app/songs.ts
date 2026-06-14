@@ -44,9 +44,7 @@ export class Songs {
   getArrangements(bookId: Signal<number>, songId: Signal<number>) {
     return computed(
       () =>
-        this.books()
-          .find((b) => b.id === bookId())
-          ?.songs.find((s) => s.id === songId())?.arrangements,
+        this.getSongs(bookId)()?.find((s) => s.id === songId())?.arrangements,
     );
   }
 
