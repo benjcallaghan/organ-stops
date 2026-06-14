@@ -48,6 +48,46 @@ export class Songs {
     );
   }
 
+  updateUserScore(
+    bookId: number,
+    songId: number,
+    arrangementId: number,
+    userScore: number,
+  ) {
+    this.#books.update((books) => {
+      const bookIndex = books.findIndex((b) => b.id === bookId);
+      const oldBook = books[bookIndex];
+
+      const songIndex = oldBook.songs.findIndex((s) => s.id === songId);
+      const oldSong = oldBook.songs[songIndex];
+
+      const arrangementIndex = oldSong.arrangements.findIndex(
+        (a) => a.id === arrangementId,
+      );
+      const oldArrangement = oldSong.arrangements[arrangementIndex];
+
+      const newArrangement: Arrangement = {
+        ...oldArrangement,
+        lastUpdated: new Date(),
+        userScore,
+        score: oldArrangement.score + (userScore - oldArrangement.userScore),
+      };
+      const newSong: Song = {
+        ...oldSong,
+        arrangements: oldSong.arrangements.toSpliced(
+          arrangementIndex,
+          1,
+          newArrangement,
+        ),
+      };
+      const newBook: Book = {
+        ...oldBook,
+        songs: oldBook.songs.toSpliced(songIndex, 1, newSong),
+      };
+      return books.toSpliced(bookIndex, 1, newBook);
+    });
+  }
+
   #createBook(): Book {
     const id = this.#nextId++;
     return {

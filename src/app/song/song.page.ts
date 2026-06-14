@@ -58,17 +58,8 @@ export default class SongPage {
     this.#songId,
   );
 
-  updateUserScore(arrangement: Arrangement, index: number, userScore: number) {
-    // TODO: Write values back to Firestore and let it propagate changes.
-    // this.arrangements.update((all) => {
-    //   const scoreDiff = userScore - arrangement.userScore;
-    //   const updated = {
-    //     ...arrangement,
-    //     userScore: userScore,
-    //     score: arrangement.score + scoreDiff,
-    //   };
-    //   return all.toSpliced(index, 1, updated);
-    // });
+  updateUserScore(arrangement: Arrangement, userScore: number) {
+    this.#songs.updateUserScore(this.#bookId(), this.#songId(), arrangement.id, userScore);
   }
 
   updateStops(event: CustomEvent<OverlayEventDetail>) {
