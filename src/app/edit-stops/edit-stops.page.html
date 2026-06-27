@@ -19,31 +19,47 @@
 
   <ion-list>
     @for (group of stops | keyvalue; track group.key) {
-      <ion-item-group>
-        <ion-item-divider>
-          <ion-label>{{ group.key }}</ion-label>
-        </ion-item-divider>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>{{ group.key }}</ion-label>
+      </ion-item-divider>
 
-        @for (stop of group.value; track stop) {
-          <ion-item>
-            <ion-toggle [attr.data-group]="group.key" [enableOnOffLabels]="true">{{ stop }}</ion-toggle>
-          </ion-item>
-        }
+      @for (stop of group.value; track stop) {
+      <ion-item>
+        <ion-toggle [attr.data-group]="group.key" [enableOnOffLabels]="true"
+          >{{ stop }}</ion-toggle
+        >
+      </ion-item>
+      }
 
-        <ion-item>
-          <ion-input [name]="group.key + '-new-stop'" placeholder="Stop Name" #newStop>
-            <ion-button fill="clear" slot="end" aria-label="Add custom stop" (click)="addStop(group.value, newStop.value)">
-              <ion-icon slot="icon-only" name="add-circle" aria-hidden></ion-icon>
-            </ion-button>
-          </ion-input>
-        </ion-item>
-      </ion-item-group>
+      <ion-item>
+        <ion-input
+          [name]="group.key + '-new-stop'"
+          placeholder="Stop Name"
+          #newStop
+        >
+          <ion-button
+            fill="clear"
+            slot="end"
+            aria-label="Add custom stop"
+            (click)="addStop(group.value, newStop.value)"
+          >
+            <ion-icon slot="icon-only" name="add-circle" aria-hidden></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+    </ion-item-group>
     }
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-input name="new-group" placeholder="Group Name" #newGroup>
-        <ion-button fill="clear" slot="end" aria-label="Add custom group" (click)="addGroup(newGroup.value)">
+        <ion-button
+          fill="clear"
+          slot="end"
+          aria-label="Add custom group"
+          (click)="addGroup(newGroup.value)"
+        >
           <ion-icon slot="icon-only" name="add-circle" aria-hidden></ion-icon>
         </ion-button>
       </ion-input>

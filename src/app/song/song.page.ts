@@ -59,7 +59,12 @@ export default class SongPage {
   );
 
   updateUserScore(arrangement: Arrangement, userScore: number) {
-    this.#songs.updateUserScore(this.#bookId(), this.#songId(), arrangement.id, userScore);
+    this.#songs.updateUserScore(
+      this.#bookId(),
+      this.#songId(),
+      arrangement.id,
+      userScore,
+    );
   }
 
   updateStops(event: CustomEvent<OverlayEventDetail>) {
@@ -67,6 +72,10 @@ export default class SongPage {
       return;
     }
 
-    this.#songs.addArrangement(this.#bookId(), this.#songId(), event.detail.data);
+    this.#songs.addArrangement(
+      this.#bookId(),
+      this.#songId(),
+      event.detail.data,
+    );
   }
 }

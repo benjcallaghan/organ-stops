@@ -48,7 +48,10 @@ import { StopsMap } from '../songs';
 })
 export class EditStopsPage {
   readonly #parentModal = inject(IonModal);
-  private readonly toggles = viewChildren<IonToggle, ElementRef<HTMLIonToggleElement>>(IonToggle, { read: ElementRef });
+  private readonly toggles = viewChildren<
+    IonToggle,
+    ElementRef<HTMLIonToggleElement>
+  >(IonToggle, { read: ElementRef });
 
   protected readonly stops: StopsMap = {
     Pedal: [
@@ -112,15 +115,18 @@ export class EditStopsPage {
   }
 
   protected save() {
-    const enabledToggles = this.toggles()
-      .filter(t => t.nativeElement.ariaChecked === 'true');
-    const grouped = Object.groupBy(enabledToggles,
-      toggle => toggle.nativeElement.dataset['group'] ?? '');
+    const enabledToggles = this.toggles().filter(
+      (toggle) => toggle.nativeElement.ariaChecked === 'true',
+    );
+    const grouped = Object.groupBy(
+      enabledToggles,
+      (toggle) => toggle.nativeElement.dataset['group'] ?? '',
+    );
     const stops: StopsMap = Object.fromEntries(
-      Object.entries(grouped).map(([key,value]) => [
+      Object.entries(grouped).map(([key, value]) => [
         key,
-        value?.map(t => t.nativeElement.innerText) ?? []
-      ])
+        value?.map((toggle) => toggle.nativeElement.innerText) ?? [],
+      ]),
     );
     this.#parentModal.dismiss(stops, 'save');
   }
