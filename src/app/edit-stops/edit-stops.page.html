@@ -18,7 +18,7 @@
   </ion-header>
 
   <ion-list>
-    @for (group of stops | keyvalue; track group.key) {
+    @for (group of stops | keyvalue:null; track group.key) {
     <ion-item-group>
       <ion-item-divider>
         <ion-label>{{ group.key }}</ion-label>
