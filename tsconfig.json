@@ -4,7 +4,7 @@
     "emitDecoratorMetadata": false,
     "target": "es2022",
     "module": "preserve",
-    "lib": ["es2023", "dom"],
+    "lib": ["es2024", "dom"],
     "paths": {},
     "isolatedModules": true,
     "skipLibCheck": true

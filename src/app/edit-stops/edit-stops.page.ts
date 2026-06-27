@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, viewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -48,6 +48,7 @@ import { StopsMap } from '../songs';
 })
 export class EditStopsPage {
   readonly #parentModal = inject(IonModal);
+  private readonly toggles = viewChildren<IonToggle, ElementRef<HTMLIonToggleElement>>(IonToggle, { read: ElementRef });
 
   protected readonly stops: StopsMap = {
     Pedal: [
@@ -111,7 +112,17 @@ export class EditStopsPage {
   }
 
   protected save() {
-    this.#parentModal.dismiss(null, 'save');
+    const enabledToggles = this.toggles()
+      .filter(t => t.nativeElement.ariaChecked === 'true');
+    const grouped = Object.groupBy(enabledToggles,
+      toggle => toggle.nativeElement.dataset['group'] ?? '');
+    const stops: StopsMap = Object.fromEntries(
+      Object.entries(grouped).map(([key,value]) => [
+        key,
+        value?.map(t => t.nativeElement.innerText) ?? []
+      ])
+    );
+    this.#parentModal.dismiss(stops, 'save');
   }
 
   protected addStop(group: string[], stop: string | number | undefined | null) {

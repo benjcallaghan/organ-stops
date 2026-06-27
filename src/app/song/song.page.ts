@@ -67,6 +67,7 @@ export default class SongPage {
       return;
     }
 
-    this.#songs.addArrangement(this.#bookId(), this.#songId());
+    console.log(event.detail.data);
+    //this.#songs.addArrangement(this.#bookId(), this.#songId());
   }
 }

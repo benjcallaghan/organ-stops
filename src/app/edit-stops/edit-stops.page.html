@@ -26,7 +26,7 @@
 
         @for (stop of group.value; track stop) {
           <ion-item>
-            <ion-toggle [enableOnOffLabels]="true">{{ stop }}</ion-toggle>
+            <ion-toggle [attr.data-group]="group.key" [enableOnOffLabels]="true">{{ stop }}</ion-toggle>
           </ion-item>
         }
 
