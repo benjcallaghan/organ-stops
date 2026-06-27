@@ -90,7 +90,7 @@ export class Songs {
     });
   }
 
-  addArrangement(bookId: number, songId: number) {
+  addArrangement(bookId: number, songId: number, stops: StopsMap) {
     this.#books.update((books) => {
       const bookIndex = books.findIndex((b) => b.id === bookId);
       const oldBook = books[bookIndex];
@@ -103,7 +103,7 @@ export class Songs {
         author: 'Current User',
         lastUpdated: new Date(),
         score: 0,
-        stops: {},
+        stops: stops,
         userScore: 0,
       };
       const newSong: Song = {
