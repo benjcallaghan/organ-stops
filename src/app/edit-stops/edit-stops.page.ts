@@ -15,7 +15,11 @@ import {
   IonItemDivider,
   IonItem,
   IonToggle,
+  IonInput,
+  IonIcon,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { addCircle } from 'ionicons/icons';
 import { StopsMap } from '../songs';
 
 @Component({
@@ -38,11 +42,13 @@ import { StopsMap } from '../songs';
     IonItemDivider,
     IonItem,
     IonToggle,
+    IonInput,
+    IonIcon,
   ],
 })
 export class EditStopsPage {
   readonly #parentModal = inject(IonModal);
-  
+
   protected readonly stops: StopsMap = {
     Pedal: [
       'Contra Violone 32',
@@ -91,18 +97,26 @@ export class EditStopsPage {
       'Tremulant',
       'Swell to Great',
     ],
-    General: [
-      'Bass Coupler',
-      'Melody Coupler',
-      'Alternate Tuning',
-    ],
+    General: ['Bass Coupler', 'Melody Coupler', 'Alternate Tuning'],
   };
 
-  cancel() {
+  constructor() {
+    addIcons({
+      addCircle,
+    });
+  }
+
+  protected cancel() {
     this.#parentModal.dismiss(null, 'cancel');
   }
 
-  save() {
+  protected save() {
     this.#parentModal.dismiss(null, 'save');
+  }
+
+  protected addStop(group: string[], stop: string | number | undefined | null) {
+    if (typeof stop === 'string' && stop) {
+      group.push(stop);
+    }
   }
 }
