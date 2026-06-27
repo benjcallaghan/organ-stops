@@ -119,4 +119,10 @@ export class EditStopsPage {
       group.push(stop);
     }
   }
+
+  protected addGroup(groupName: string | number | undefined | null) {
+    if (typeof groupName === 'string' && groupName) {
+      this.stops[groupName] = [];
+    }
+  }
 }
