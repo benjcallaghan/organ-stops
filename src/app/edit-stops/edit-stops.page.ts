@@ -45,6 +45,9 @@ import { StopsMap } from '../songs';
     IonInput,
     IonIcon,
   ],
+  host: {
+    style: "display: contents;"
+  }
 })
 export class EditStopsPage {
   readonly #parentModal = inject(IonModal);
