@@ -1,11 +1,13 @@
 import { computed, Injectable, Signal, signal } from '@angular/core';
 
+export type StopsMap = Record<string, string[]>;
+
 export interface Arrangement {
   id: number;
   author: string;
   score: number;
   lastUpdated: Date;
-  stops: Record<string, string[]>;
+  stops: StopsMap;
   userScore: number;
 }
 

@@ -10,7 +10,13 @@ import {
   IonButton,
   IonLabel,
   IonModal,
+  IonList,
+  IonItemGroup,
+  IonItemDivider,
+  IonItem,
+  IonToggle,
 } from '@ionic/angular/standalone';
+import { StopsMap } from '../songs';
 
 @Component({
   selector: 'app-edit-stops',
@@ -27,16 +33,76 @@ import {
     IonButtons,
     IonButton,
     IonLabel,
+    IonList,
+    IonItemGroup,
+    IonItemDivider,
+    IonItem,
+    IonToggle,
   ],
 })
 export class EditStopsPage {
-  private parentModal = inject(IonModal);
+  readonly #parentModal = inject(IonModal);
+  
+  protected readonly stops: StopsMap = {
+    Pedal: [
+      'Contra Violone 32',
+      'Diapason 16',
+      'Bourdon 16',
+      'Lieblich Gedackt 16',
+      'Octave 8',
+      'Flute 8',
+      'Choral Bass 4',
+      'Mixture III',
+      'Posaune 16',
+      'Waldhorn 16',
+      'French Trumpet 8',
+      'Great to Pedal',
+      'Swell to Pedal',
+    ],
+    Swell: [
+      'Lieblich Gedackt 16',
+      'Gedackt 8',
+      'Viola Pomposa 8',
+      'Viola Celeste 8',
+      'Flute Celeste II 8',
+      'Octave 4',
+      'Traverse Flute 4',
+      'Nasard 2 ⅔',
+      'Piccolo 2',
+      'Tierce 1 ⅗',
+      'Fourniture IV',
+      'Waldhorn 16',
+      'Tromba 8',
+      'Oboe 8',
+      'Tremulant',
+    ],
+    Great: [
+      'Violone 16',
+      'Diapason 8',
+      'Harmonic Flute 8',
+      'Flute Celeste II 8',
+      'Octave 4',
+      'Spitzflöte 4',
+      'Fifteenth 2',
+      'Mixture IV',
+      'French Trumpet 8',
+      'Krummhorn 8',
+      'Chimes',
+      'Tremulant',
+      'Swell to Great',
+    ],
+    General: [
+      'Bass Coupler',
+      'Melody Coupler',
+      'Alternate Tuning',
+    ],
+  };
 
   cancel() {
-    this.parentModal.dismiss(null, 'cancel');
+    this.#parentModal.dismiss(null, 'cancel');
   }
 
   save() {
-    this.parentModal.dismiss(null, 'save');
+    this.#parentModal.dismiss(null, 'save');
   }
 }
