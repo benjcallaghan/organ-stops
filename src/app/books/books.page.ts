@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonCol,
@@ -30,6 +30,7 @@ import { Songs } from '../songs';
     RouterLink,
   ],
   templateUrl: './books.page.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './books.page.css',
 })
 export class BooksPage {

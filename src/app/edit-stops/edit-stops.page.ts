@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, viewChildren } from '@angular/core';
+import { Component, ElementRef, inject, viewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -45,6 +45,7 @@ import { StopsMap } from '../songs';
     IonInput,
     IonIcon,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     style: 'display: contents;',
   },

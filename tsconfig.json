@@ -7,7 +7,12 @@
     "lib": ["es2024", "dom"],
     "paths": {},
     "isolatedModules": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
