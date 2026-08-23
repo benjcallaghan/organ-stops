@@ -17,7 +17,7 @@ import {
   IonToggle,
   IonInput,
   IonIcon,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { addCircle } from 'ionicons/icons';
 import { StopsMap } from '../songs';
@@ -46,8 +46,8 @@ import { StopsMap } from '../songs';
     IonIcon,
   ],
   host: {
-    style: "display: contents;"
-  }
+    style: 'display: contents;',
+  },
 })
 export class EditStopsPage {
   readonly #parentModal = inject(IonModal);

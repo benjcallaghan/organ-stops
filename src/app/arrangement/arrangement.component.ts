@@ -15,7 +15,7 @@ import {
   IonLabel,
   IonItem,
   IonText,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import {
   caretDownCircle,

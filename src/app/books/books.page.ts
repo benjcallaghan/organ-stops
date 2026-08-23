@@ -11,7 +11,7 @@ import {
   IonThumbnail,
   IonItem,
   IonLabel,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Songs } from '../songs';
 
 @Component({

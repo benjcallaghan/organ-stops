@@ -13,7 +13,7 @@ import {
   IonBadge,
   IonModal,
   IonButton,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { ArrangementComponent } from '../arrangement/arrangement.component';
 import { EditStopsPage } from '../edit-stops/edit-stops.page';
