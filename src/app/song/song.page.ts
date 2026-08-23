@@ -59,6 +59,16 @@ export default class SongPage {
     this.#songId,
   );
 
+  protected scoreColor(arrangement: Arrangement) {
+    if (arrangement.userScore === 1) {
+      return 'warning';
+    } else if (arrangement.userScore === -1) {
+      return 'danger';
+    } else {
+      return 'secondary';
+    }
+  }
+
   updateUserScore(arrangement: Arrangement, userScore: number) {
     this.#songs.updateUserScore(
       this.#bookId(),
