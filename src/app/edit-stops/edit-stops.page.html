@@ -53,12 +53,12 @@
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-input name="new-group" placeholder="Group Name" #newGroup>
+      <ion-input name="new-group" placeholder="Group Name" [(ngModel)]="groupName">
         <ion-button
           fill="clear"
           slot="end"
           aria-label="Add custom group"
-          (click)="addGroup(newGroup.value)"
+          (click)="addGroup()"
         >
           <ion-icon slot="icon-only" name="add-circle" aria-hidden></ion-icon>
         </ion-button>

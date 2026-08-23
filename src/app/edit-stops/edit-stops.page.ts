@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, viewChildren, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, inject, viewChildren, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -107,6 +107,7 @@ export class EditStopsPage {
     ],
     General: ['Bass Coupler', 'Melody Coupler', 'Alternate Tuning'],
   };
+  protected groupName = signal('');
 
   constructor() {
     addIcons({
@@ -141,9 +142,10 @@ export class EditStopsPage {
     }
   }
 
-  protected addGroup(groupName: string | number | undefined | null) {
-    if (typeof groupName === 'string' && groupName) {
-      this.stops[groupName] = [];
+  protected addGroup() {
+    if (this.groupName()) {
+      this.stops[this.groupName()] = [];
+      this.groupName.set('');
     }
   }
 }
