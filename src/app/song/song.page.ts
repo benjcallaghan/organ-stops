@@ -1,4 +1,4 @@
-import { Component, computed, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import {
   IonContent,
   IonHeader,
@@ -26,7 +26,6 @@ import { Arrangement, Songs } from '../songs';
   templateUrl: './song.page.html',
   styleUrls: ['./song.page.css'],
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     IonContent,
     IonHeader,
